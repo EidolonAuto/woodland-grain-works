@@ -30,7 +30,7 @@ Reduced-motion mode removes continuous scanning and Canvas ambience, resolves dr
 The business-card artwork establishes a richer purple-night, engraved-gold visual vocabulary. The website uses it selectively:
 
 - `assets/backgrounds/woodland-night-road-v2.jpg` is a generated wide adaptation of the supplied square landscape, with dark text-safe space on the left.
-- `assets/generated/` contains transparent ornaments, forest layers, and service medallions extracted from the supplied palette sheets.
+- `assets/generated/` preserves the original transparent extractions. `assets/generated/hd/` contains the retina-ready set used by the site: six 1254 × 1254 high-detail service redraws plus padded 4× decorative layers.
 - `assets/branding/legacy/` preserves the supplied transparent maker seal and print SVG as reference assets.
 
 The detailed artwork is treated as atmosphere and emphasis rather than applied to every surface. Text remains HTML, not baked into images. The extraction script and original palette sources are retained so the UI kit is reproducible.

@@ -70,8 +70,8 @@ test("supplied brand art is integrated without the unrelated image", async () =>
   const services = await read("services.html");
   const designNotes = await read("assets/generated/README.md");
   assert.match(homepage, /woodland-night-road-v2\.jpg/);
-  assert.match(homepage, /assets\/generated\/divider\.png/);
-  assert.match(services, /assets\/generated\/service-laser\.png/);
+  assert.match(homepage, /assets\/generated\/hd\/divider\.png/);
+  assert.match(services, /assets\/generated\/hd\/service-laser\.png/);
   assert.doesNotMatch(`${homepage}${services}`, /fire|angel|wing/i);
   assert.match(
     designNotes,
