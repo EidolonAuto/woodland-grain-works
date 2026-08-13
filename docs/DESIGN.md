@@ -25,6 +25,8 @@ Reusable values live in `css/tokens.css`. Local one-off dimensions are acceptabl
 
 Reduced-motion mode removes continuous scanning and Canvas ambience, resolves drawn paths immediately, and reveals all content without translation.
 
+Motion follows a staged editorial system: a short layered entrance establishes hierarchy, content reveals once with directional depth, and technical linework draws only when it becomes relevant. Fine-pointer responses use damped interpolation rather than snapping; ambient movement stays subordinate to reading.
+
 ## Supplied brand artwork
 
 The business-card artwork establishes a richer purple-night, engraved-gold visual vocabulary. The website uses it selectively:

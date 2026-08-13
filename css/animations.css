@@ -1,15 +1,90 @@
 .js .reveal {
+  --reveal-x: 0rem;
+  --reveal-y: 2.75rem;
+
   opacity: 0;
-  transform: translateY(2.5rem);
+  filter: blur(7px);
+  transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(0.985);
   transition:
-    opacity var(--duration-slow) var(--ease-out),
-    transform var(--duration-slow) var(--ease-out);
+    opacity 760ms var(--ease-out),
+    filter 760ms var(--ease-out),
+    transform 920ms var(--ease-out);
+  transition-delay: calc(var(--reveal-order, 0) * 70ms);
+  will-change: opacity, filter, transform;
 }
 .js .reveal.is-visible {
   opacity: 1;
+  filter: none;
   transform: none;
+  will-change: auto;
 }
-.hero-rings path {
+
+.js:not(.is-ready) .site-header {
+  opacity: 0;
+  transform: translateY(-1rem);
+}
+
+.site-header {
+  transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out),
+    background var(--duration-base),
+    border-color var(--duration-base);
+}
+
+.js:not(.is-ready) .hero__backdrop {
+  opacity: 0;
+  transform: scale(1.035);
+}
+
+.hero__backdrop {
+  transition:
+    opacity 1.15s var(--ease-out),
+    transform 1.6s var(--ease-out);
+}
+
+.js:not(.is-ready) .hero__copy > *,
+.js:not(.is-ready) .interior-hero__layout > * {
+  opacity: 0;
+  transform: translateY(1.75rem);
+}
+
+.hero__copy > *,
+.interior-hero__layout > * {
+  transition:
+    opacity 760ms var(--ease-out),
+    transform 900ms var(--ease-out);
+}
+
+.hero__copy > :nth-child(1) {
+  transition-delay: 120ms;
+}
+
+.hero__copy > :nth-child(2) {
+  transition-delay: 190ms;
+}
+
+.hero__copy > :nth-child(3) {
+  transition-delay: 290ms;
+}
+
+.hero__copy > :nth-child(4) {
+  transition-delay: 390ms;
+}
+
+.interior-hero__layout > :nth-child(1) {
+  transition-delay: 130ms;
+}
+
+.interior-hero__layout > :nth-child(2) {
+  transition-delay: 260ms;
+}
+
+.js:not(.is-ready) .hero-visual {
+  opacity: 0;
+  transform: translate3d(2rem, 1rem, 0) scale(0.96);
+}
+.js.is-ready .hero-rings path {
   fill: none;
   stroke: rgba(227, 191, 121, 0.34);
   stroke-width: 1.2;
@@ -29,11 +104,11 @@
 .hero-rings path:nth-child(5) {
   animation-delay: 0.6s;
 }
-.hero-tree {
+.js.is-ready .hero-tree {
   opacity: 0;
   animation: fade-up 1.2s 0.8s var(--ease-out) forwards;
 }
-.hero-circuit path {
+.js.is-ready .hero-circuit path {
   fill: none;
   stroke: rgba(155, 66, 194, 0.55);
   stroke-width: 1;
@@ -50,7 +125,10 @@
   stroke-width: 1;
   filter: drop-shadow(0 0 8px var(--color-gold-300));
   opacity: 0;
-  animation: scan-beam 5s 1.4s var(--ease-in-out) infinite;
+}
+
+.js.is-ready .hero-beam {
+  animation: scan-beam 2.8s 1.25s var(--ease-in-out) 1 both;
 }
 .engrave-lines path {
   fill: none;
@@ -59,7 +137,11 @@
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
 }
-.service-feature.is-visible .engrave-lines path {
+.service-feature.is-visible .engrave-lines path,
+.capability__visual.is-visible path,
+.capability__visual.is-visible circle,
+.capability__visual.is-visible line,
+.capability__visual.is-visible polyline {
   animation: draw-ring 1.8s var(--ease-out) forwards;
 }
 .service-feature.is-visible .engrave-lines path:nth-child(2) {
@@ -71,15 +153,15 @@
 .service-feature.is-visible .engrave-lines path:nth-child(4) {
   animation-delay: 0.45s;
 }
-.engrave-beam {
+.service-feature.is-visible .engrave-beam {
   stroke: var(--color-gold-300);
   filter: drop-shadow(0 0 8px var(--color-gold-300));
-  animation: engrave-scan 4s var(--ease-in-out) infinite;
+  animation: engrave-scan 2.5s var(--ease-in-out) 1 both;
 }
-.engrave-head {
+.service-feature.is-visible .engrave-head {
   fill: var(--color-gold-300);
   filter: drop-shadow(0 0 12px var(--color-gold-300));
-  animation: engrave-head 4s var(--ease-in-out) infinite;
+  animation: engrave-head 2.5s var(--ease-in-out) 1 both;
 }
 @keyframes draw-ring {
   to {
@@ -138,6 +220,14 @@
     transition-duration: 0.01ms !important;
   }
   .js .reveal {
+    opacity: 1;
+    transform: none;
+  }
+  .js:not(.is-ready) .site-header,
+  .js:not(.is-ready) .hero__backdrop,
+  .js:not(.is-ready) .hero__copy > *,
+  .js:not(.is-ready) .interior-hero__layout > *,
+  .js:not(.is-ready) .hero-visual {
     opacity: 1;
     transform: none;
   }

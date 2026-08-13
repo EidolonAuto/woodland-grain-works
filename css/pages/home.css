@@ -1,6 +1,7 @@
 .hero {
   --hero-x: 0px;
   --hero-y: 0px;
+  --hero-scroll: 0;
 
   position: relative;
   display: grid;
@@ -55,7 +56,12 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  transform: translate3d(var(--hero-x), var(--hero-y), 0) scale(1.055);
+  transform: translate3d(
+      var(--hero-x),
+      calc(var(--hero-y) + var(--hero-scroll) * 1.75rem),
+      0
+    )
+    scale(calc(1.055 + var(--hero-scroll) * 0.025));
   transition: transform 1.2s var(--ease-out);
 }
 
@@ -149,12 +155,27 @@
 }
 
 .hero-visual {
+  --hero-visual-x: 0px;
+  --hero-visual-y: 0px;
+  --hero-rotate-x: 0deg;
+  --hero-rotate-y: 0deg;
+
   position: relative;
   width: min(100%, 34rem);
   justify-self: center;
   margin-top: -1rem;
   opacity: 0.46;
   mix-blend-mode: screen;
+  transform: translate3d(
+      var(--hero-visual-x),
+      calc(var(--hero-visual-y) + var(--hero-scroll) * -1.25rem),
+      0
+    )
+    rotateX(var(--hero-rotate-x)) rotateY(var(--hero-rotate-y));
+  transform-style: preserve-3d;
+  transition:
+    opacity 900ms var(--ease-out),
+    transform 120ms linear;
 }
 
 .hero-visual__glow {
@@ -263,6 +284,10 @@
 .portal {
   --portal-x: 50%;
   --portal-y: 50%;
+  --portal-art-x: 0px;
+  --portal-art-y: 0px;
+  --portal-rotate-x: 0deg;
+  --portal-rotate-y: 0deg;
 
   position: relative;
   display: grid;
@@ -281,6 +306,11 @@
   color: var(--color-paper-50);
   isolation: isolate;
   text-decoration: none;
+  transform: perspective(80rem) rotateX(var(--portal-rotate-x))
+    rotateY(var(--portal-rotate-y));
+  transition:
+    border-color var(--duration-fast),
+    transform 180ms linear;
 }
 
 .portal:nth-child(odd) {
@@ -304,6 +334,16 @@
 .portal:hover::before,
 .portal:focus-visible::before {
   opacity: 1;
+}
+
+.portal:hover,
+.portal:focus-visible {
+  border-color: rgba(227, 191, 121, 0.3);
+}
+
+.js .portal.reveal.is-visible {
+  transform: perspective(80rem) rotateX(var(--portal-rotate-x))
+    rotateY(var(--portal-rotate-y));
 }
 
 .portal__number,
@@ -374,7 +414,8 @@
 .portal:hover .portal__asset,
 .portal:focus-visible .portal__asset {
   opacity: 0.58;
-  transform: scale(1.025);
+  transform: translate3d(var(--portal-art-x), var(--portal-art-y), 0)
+    scale(1.025);
 }
 
 .portal__medallions {
@@ -449,7 +490,11 @@
 .portal-pulse {
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  animation: portal-trace 5s var(--ease-in-out) infinite;
+}
+
+.portal.is-visible .portal-line,
+.portal.is-visible .portal-pulse {
+  animation: portal-trace 1.9s 280ms var(--ease-out) 1 forwards;
 }
 
 .portal-node {
@@ -585,6 +630,7 @@
     width: 21rem;
     margin: 0;
     opacity: 0.24;
+    transform: none;
   }
 
   .portal > svg,
@@ -644,6 +690,12 @@
 
   .hero__backdrop img {
     transform: scale(1.055);
+    transition: none;
+  }
+
+  .portal,
+  .hero-visual {
+    transform: none;
     transition: none;
   }
 }

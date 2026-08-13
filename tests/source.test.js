@@ -63,6 +63,16 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   ]) {
     assert.match(await read(path), /prefers-reduced-motion:\s*reduce/);
   }
+
+  const motion = await read("js/motion.js");
+  const animations = await read("css/animations.css");
+  const home = await read("css/pages/home.css");
+  const internal = await read("css/pages/internal.css");
+  assert.match(motion, /initPageIntro/);
+  assert.match(motion, /const approach/);
+  assert.match(animations, /\.js:not\(\.is-ready\)/);
+  assert.match(home, /portal-trace[^;]*1 forwards/);
+  assert.match(internal, /clip-path:\s*inset\(0 0 100% 0\)/);
 });
 
 test("supplied brand art is integrated without the unrelated image", async () => {

@@ -274,7 +274,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform var(--duration-slow) var(--ease-out);
+  transition: transform 1.1s var(--ease-out);
 }
 
 .project-study__visual > span {
@@ -612,8 +612,62 @@
   }
 }
 
+.js .project-study.reveal {
+  filter: none;
+  transform: none;
+}
+
+.js .project-study.reveal .project-study__visual {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.05s var(--ease-out);
+}
+
+.js .project-study.reveal .project-study__visual img {
+  transform: scale(1.06);
+  transition: transform 1.35s var(--ease-out);
+}
+
+.js .project-study.reveal .project-study__copy {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 760ms 180ms var(--ease-out),
+    transform 920ms 180ms var(--ease-out);
+}
+
+.js .project-study.reveal.is-visible .project-study__visual {
+  clip-path: inset(0);
+}
+
+.js .project-study.reveal.is-visible .project-study__visual img {
+  transform: scale(1);
+}
+
+.js .project-study.reveal.is-visible .project-study__copy {
+  opacity: 1;
+  transform: none;
+}
+
+@media (hover: hover) {
+  .js .project-study.reveal.is-visible:hover .project-study__visual img {
+    transform: scale(1.025);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project-study__visual img {
+    transition: none;
+  }
+
+  .js .project-study.reveal .project-study__visual {
+    clip-path: none;
+    transition: none;
+  }
+
+  .js .project-study.reveal .project-study__visual img,
+  .js .project-study.reveal .project-study__copy {
+    opacity: 1;
+    transform: none;
     transition: none;
   }
 

@@ -5,9 +5,12 @@
   height: var(--header-height);
   color: var(--color-paper-50);
   transition:
+    opacity 700ms var(--ease-out),
+    transform 700ms var(--ease-out),
     background var(--duration-base),
     border-color var(--duration-base);
 }
+
 .site-header.is-scrolled {
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(17, 14, 18, 0.82);
@@ -94,13 +97,25 @@
 .primary-nav {
   position: absolute;
   inset: var(--header-height) 0 auto;
-  display: none;
+  display: grid;
   padding: 0 var(--edge-gutter) 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(17, 14, 18, 0.98);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-0.75rem);
+  transition:
+    opacity 280ms var(--ease-out),
+    transform 360ms var(--ease-out),
+    visibility 0s linear 360ms;
+  visibility: hidden;
 }
 .primary-nav[data-open] {
-  display: grid;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transition-delay: 0s;
+  visibility: visible;
 }
 .primary-nav a {
   display: flex;
@@ -265,6 +280,11 @@
     padding: 0;
     border: 0;
     background: transparent;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
+    visibility: visible;
   }
   .primary-nav a {
     min-height: auto;

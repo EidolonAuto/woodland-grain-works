@@ -1,5 +1,19 @@
 import { environment } from "./modules/environment.js";
 
+const clamp = (value, minimum, maximum) =>
+  Math.min(Math.max(value, minimum), maximum);
+
+const approach = (current, target, strength = 0.12) =>
+  current + (target - current) * strength;
+
+export function initPageIntro() {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(() =>
+      document.documentElement.classList.add("is-ready"),
+    );
+  });
+}
+
 export function initReveals() {
   const elements = [...document.querySelectorAll(".reveal")];
   if (!elements.length) return;
@@ -20,7 +34,14 @@ export function initReveals() {
     { rootMargin: "0px 0px -10% 0px", threshold: 0.08 },
   );
 
-  elements.forEach((element) => observer.observe(element));
+  elements.forEach((element) => {
+    const siblings = [...(element.parentElement?.children ?? [])].filter(
+      (sibling) => sibling.classList.contains("reveal"),
+    );
+    const order = Math.max(0, siblings.indexOf(element));
+    element.style.setProperty("--reveal-order", String(Math.min(order, 3)));
+    observer.observe(element);
+  });
 }
 
 export function initHeroResponse() {
@@ -30,35 +51,86 @@ export function initHeroResponse() {
     return;
 
   let frame = 0;
+  const state = { x: 0, y: 0, targetX: 0, targetY: 0 };
+
+  const render = () => {
+    state.x = approach(state.x, state.targetX, 0.11);
+    state.y = approach(state.y, state.targetY, 0.11);
+    hero.style.setProperty("--hero-x", `${state.x * -10}px`);
+    hero.style.setProperty("--hero-y", `${state.y * -7}px`);
+    visual.style.setProperty("--hero-visual-x", `${state.x * 13}px`);
+    visual.style.setProperty("--hero-visual-y", `${state.y * 10}px`);
+    visual.style.setProperty("--hero-rotate-x", `${state.y * -1.5}deg`);
+    visual.style.setProperty("--hero-rotate-y", `${state.x * 1.5}deg`);
+
+    if (
+      Math.abs(state.x - state.targetX) > 0.001 ||
+      Math.abs(state.y - state.targetY) > 0.001
+    ) {
+      frame = requestAnimationFrame(render);
+    } else {
+      frame = 0;
+    }
+  };
+
+  const schedule = () => {
+    if (!frame) frame = requestAnimationFrame(render);
+  };
+
   hero.addEventListener("pointermove", (event) => {
-    cancelAnimationFrame(frame);
-    frame = requestAnimationFrame(() => {
-      const bounds = hero.getBoundingClientRect();
-      const x = (event.clientX - bounds.left) / bounds.width - 0.5;
-      const y = (event.clientY - bounds.top) / bounds.height - 0.5;
-      hero.style.setProperty("--hero-x", `${x * -10}px`);
-      hero.style.setProperty("--hero-y", `${y * -7}px`);
-      visual.style.transform = `translate3d(${x * 13}px, ${y * 10}px, 0) rotateX(${-y * 2}deg) rotateY(${x * 2}deg)`;
-    });
+    const bounds = hero.getBoundingClientRect();
+    state.targetX = clamp(
+      (event.clientX - bounds.left) / bounds.width - 0.5,
+      -0.5,
+      0.5,
+    );
+    state.targetY = clamp(
+      (event.clientY - bounds.top) / bounds.height - 0.5,
+      -0.5,
+      0.5,
+    );
+    schedule();
   });
   hero.addEventListener("pointerleave", () => {
-    hero.style.removeProperty("--hero-x");
-    hero.style.removeProperty("--hero-y");
-    visual.style.transform = "";
+    state.targetX = 0;
+    state.targetY = 0;
+    schedule();
   });
 }
 
 export function initMagneticElements() {
   if (environment.reducedMotion || !environment.finePointer) return;
   document.querySelectorAll("[data-magnetic]").forEach((element) => {
+    let frame = 0;
+    const state = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    const render = () => {
+      state.x = approach(state.x, state.targetX, 0.18);
+      state.y = approach(state.y, state.targetY, 0.18);
+      element.style.transform = `translate3d(${state.x}px, ${state.y}px, 0)`;
+      if (
+        Math.abs(state.x - state.targetX) > 0.05 ||
+        Math.abs(state.y - state.targetY) > 0.05
+      ) {
+        frame = requestAnimationFrame(render);
+      } else {
+        frame = 0;
+      }
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(render);
+    };
     element.addEventListener("pointermove", (event) => {
       const bounds = element.getBoundingClientRect();
       const x = event.clientX - bounds.left - bounds.width / 2;
       const y = event.clientY - bounds.top - bounds.height / 2;
-      element.style.transform = `translate(${x * 0.09}px, ${y * 0.12}px)`;
+      state.targetX = x * 0.07;
+      state.targetY = y * 0.09;
+      schedule();
     });
     element.addEventListener("pointerleave", () => {
-      element.style.transform = "";
+      state.targetX = 0;
+      state.targetY = 0;
+      schedule();
     });
   });
 }
@@ -67,16 +139,69 @@ export function initPortalResponse() {
   if (environment.reducedMotion || !environment.finePointer) return;
 
   document.querySelectorAll("[data-portal]").forEach((portal) => {
+    let frame = 0;
+    const state = { x: 0, y: 0, targetX: 0, targetY: 0 };
+    const render = () => {
+      state.x = approach(state.x, state.targetX, 0.14);
+      state.y = approach(state.y, state.targetY, 0.14);
+      portal.style.setProperty("--portal-x", `${50 + state.x * 50}%`);
+      portal.style.setProperty("--portal-y", `${50 + state.y * 50}%`);
+      portal.style.setProperty("--portal-art-x", `${state.x * 8}px`);
+      portal.style.setProperty("--portal-art-y", `${state.y * 6}px`);
+      portal.style.setProperty("--portal-rotate-x", `${state.y * -0.7}deg`);
+      portal.style.setProperty("--portal-rotate-y", `${state.x * 0.7}deg`);
+      if (
+        Math.abs(state.x - state.targetX) > 0.002 ||
+        Math.abs(state.y - state.targetY) > 0.002
+      ) {
+        frame = requestAnimationFrame(render);
+      } else {
+        frame = 0;
+      }
+    };
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(render);
+    };
     portal.addEventListener("pointermove", (event) => {
       const bounds = portal.getBoundingClientRect();
-      portal.style.setProperty(
-        "--portal-x",
-        `${((event.clientX - bounds.left) / bounds.width) * 100}%`,
+      state.targetX = clamp(
+        ((event.clientX - bounds.left) / bounds.width - 0.5) * 2,
+        -1,
+        1,
       );
-      portal.style.setProperty(
-        "--portal-y",
-        `${((event.clientY - bounds.top) / bounds.height) * 100}%`,
+      state.targetY = clamp(
+        ((event.clientY - bounds.top) / bounds.height - 0.5) * 2,
+        -1,
+        1,
       );
+      schedule();
+    });
+    portal.addEventListener("pointerleave", () => {
+      state.targetX = 0;
+      state.targetY = 0;
+      schedule();
     });
   });
+}
+
+export function initScrollMotion() {
+  const hero = document.querySelector(".hero");
+  if (!hero || environment.reducedMotion) return;
+
+  let frame = 0;
+  const update = () => {
+    const progress = clamp(
+      window.scrollY / Math.max(hero.offsetHeight, 1),
+      0,
+      1,
+    );
+    hero.style.setProperty("--hero-scroll", progress.toFixed(3));
+    frame = 0;
+  };
+  const schedule = () => {
+    if (!frame) frame = requestAnimationFrame(update);
+  };
+
+  update();
+  window.addEventListener("scroll", schedule, { passive: true });
 }
