@@ -25,6 +25,16 @@ Reusable values live in `css/tokens.css`. Local one-off dimensions are acceptabl
 
 Reduced-motion mode removes continuous scanning and Canvas ambience, resolves drawn paths immediately, and reveals all content without translation.
 
+## Supplied brand artwork
+
+The business-card artwork establishes a richer purple-night, engraved-gold visual vocabulary. The website uses it selectively:
+
+- `assets/backgrounds/woodland-night-road-v2.jpg` is a generated wide adaptation of the supplied square landscape, with dark text-safe space on the left.
+- `assets/generated/` contains transparent ornaments, forest layers, and service medallions extracted from the supplied palette sheets.
+- `assets/branding/legacy/` preserves the supplied transparent maker seal and print SVG as reference assets.
+
+The detailed artwork is treated as atmosphere and emphasis rather than applied to every surface. Text remains HTML, not baked into images. The extraction script and original palette sources are retained so the UI kit is reproducible.
+
 ## Photography needed
 
 No external photos are included. When genuine work is documented, source these assets with clear ownership:

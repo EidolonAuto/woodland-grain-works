@@ -1,4 +1,7 @@
 .hero {
+  --hero-x: 0px;
+  --hero-y: 0px;
+
   position: relative;
   display: grid;
   min-height: 100svh;
@@ -16,6 +19,7 @@
 
 .hero::before {
   position: absolute;
+  z-index: 2;
   inset: 0;
   background:
     linear-gradient(90deg, rgba(199, 149, 67, 0.05) 1px, transparent 1px),
@@ -25,6 +29,36 @@
   mask-image: linear-gradient(to bottom, black, transparent 85%);
 }
 
+.hero__backdrop {
+  position: absolute;
+  z-index: 0;
+  inset: -2rem;
+  overflow: hidden;
+}
+
+.hero__backdrop::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(9, 7, 11, 0.96) 0%,
+      rgba(9, 7, 11, 0.72) 39%,
+      rgba(9, 7, 11, 0.12) 74%
+    ),
+    linear-gradient(0deg, rgba(7, 10, 9, 0.7), transparent 55%);
+  content: "";
+}
+
+.hero__backdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transform: translate3d(var(--hero-x), var(--hero-y), 0) scale(1.055);
+  transition: transform 1.2s var(--ease-out);
+}
+
 .hero__particles,
 .hero__grid {
   position: absolute;
@@ -32,6 +66,7 @@
 }
 
 .hero__particles {
+  z-index: 1;
   inset: 0;
   width: 100%;
   height: 100%;
@@ -39,13 +74,14 @@
 }
 
 .hero__grid {
+  z-index: 2;
   inset: var(--header-height) 1rem 2rem;
   border: 1px solid rgba(255, 255, 255, 0.055);
 }
 
 .hero__layout {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   display: grid;
   align-items: center;
   padding-block: calc(var(--header-height) + 3.5rem) 4rem;
@@ -116,7 +152,8 @@
   width: min(100%, 34rem);
   justify-self: center;
   margin-top: -2rem;
-  opacity: 0.74;
+  opacity: 0.46;
+  mix-blend-mode: screen;
 }
 
 .hero-visual__glow {
@@ -184,6 +221,12 @@
 .doors-heading h2 {
   max-width: 13ch;
   margin-top: var(--space-4);
+}
+
+.doors-heading__divider {
+  width: min(20rem, 68vw);
+  margin-top: var(--space-6);
+  opacity: 0.72;
 }
 
 .portal-grid {
@@ -285,7 +328,8 @@
 }
 
 .portal > svg,
-.portal__image {
+.portal__image,
+.portal__asset {
   position: absolute;
   z-index: 0;
   inset: 8% -10% 8% 10%;
@@ -300,9 +344,63 @@
 .portal:hover > svg,
 .portal:focus-visible > svg,
 .portal:hover .portal__image,
-.portal:focus-visible .portal__image {
+.portal:focus-visible .portal__image,
+.portal:hover .portal__asset,
+.portal:focus-visible .portal__asset {
   opacity: 0.58;
   transform: scale(1.025);
+}
+
+.portal__medallions {
+  position: absolute;
+  z-index: 1;
+  top: 18%;
+  right: 6%;
+  display: flex;
+  width: 62%;
+  justify-content: flex-end;
+  opacity: 0.72;
+}
+
+.portal__medallions img {
+  width: clamp(4.5rem, 10vw, 8rem);
+  margin-left: clamp(-1.15rem, -2vw, -0.65rem);
+  filter: drop-shadow(0 0 22px rgba(79, 14, 112, 0.7));
+  transform: translateY(calc(var(--medallion-index, 0) * 1rem));
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.portal__medallions img:nth-child(2) {
+  --medallion-index: 1;
+}
+
+.portal__medallions img:nth-child(3) {
+  --medallion-index: 2;
+}
+
+.portal:hover .portal__medallions img,
+.portal:focus-visible .portal__medallions img {
+  transform: translateY(calc(var(--medallion-index, 0) * 0.45rem - 0.4rem));
+}
+
+.portal__asset img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.portal__asset--forest {
+  inset: 16% -2% 8% 12%;
+  height: 76%;
+  opacity: 0.74;
+}
+
+.portal__asset--gem {
+  inset: 13% 2% auto auto;
+  width: 47%;
+  height: 56%;
+  opacity: 0.58;
+  filter: drop-shadow(0 0 30px rgba(155, 66, 194, 0.5));
 }
 
 .portal__image img {
@@ -428,6 +526,16 @@
 }
 
 @media (max-width: 47.99rem) {
+  .hero__backdrop img {
+    object-position: 66% center;
+  }
+
+  .hero__backdrop::after {
+    background:
+      linear-gradient(90deg, rgba(9, 7, 11, 0.82), rgba(9, 7, 11, 0.25)),
+      linear-gradient(0deg, rgba(7, 10, 9, 0.72), transparent 60%);
+  }
+
   .hero-visual {
     width: min(95vw, 25rem);
   }
@@ -447,8 +555,15 @@
 
   .portal > svg,
   .portal__image,
+  .portal__asset,
+  .portal__medallions img,
   .portal__action,
   .hub-enter i::after {
+    transition: none;
+  }
+
+  .hero__backdrop img {
+    transform: scale(1.055);
     transition: none;
   }
 }

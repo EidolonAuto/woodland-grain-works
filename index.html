@@ -101,6 +101,16 @@
 
     <main id="main-content">
       <section id="top" class="hero hub-hero" aria-labelledby="hero-title">
+        <div class="hero__backdrop" aria-hidden="true">
+          <img
+            src="assets/backgrounds/woodland-night-road-v2.jpg"
+            alt=""
+            width="2048"
+            height="1152"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </div>
         <canvas
           class="hero__particles"
           aria-hidden="true"
@@ -191,6 +201,13 @@
         <div class="shell doors-heading reveal">
           <p class="eyebrow"><span></span>Where do you want to go?</p>
           <h2 id="doors-title">The workshop has more than one entrance.</h2>
+          <img
+            class="doors-heading__divider"
+            src="assets/generated/divider.png"
+            alt=""
+            loading="lazy"
+            decoding="async"
+          />
         </div>
         <div class="portal-grid">
           <a
@@ -204,6 +221,11 @@
               <h3>Services</h3>
             </div>
             <span class="portal__action">Open the tool wall ↗</span>
+            <div class="portal__medallions" aria-hidden="true">
+              <img src="assets/generated/service-laser.png" alt="" />
+              <img src="assets/generated/service-woodworking.png" alt="" />
+              <img src="assets/generated/service-smart-home.png" alt="" />
+            </div>
             <svg viewBox="0 0 600 500" aria-hidden="true">
               <g class="portal-rings">
                 <circle cx="420" cy="240" r="170" />
@@ -236,6 +258,9 @@
               <h3>About the workshop</h3>
             </div>
             <span class="portal__action">Walk behind the work ↗</span>
+            <div class="portal__asset portal__asset--forest" aria-hidden="true">
+              <img src="assets/generated/forest.png" alt="" loading="lazy" />
+            </div>
             <svg viewBox="0 0 600 500" aria-hidden="true">
               <path
                 class="portal-forest"
@@ -258,6 +283,9 @@
               <h3>Bring an idea</h3>
             </div>
             <span class="portal__action">Send a signal ↗</span>
+            <div class="portal__asset portal__asset--gem" aria-hidden="true">
+              <img src="assets/generated/gem.png" alt="" loading="lazy" />
+            </div>
             <svg viewBox="0 0 600 500" aria-hidden="true">
               <path
                 class="portal-pulse"

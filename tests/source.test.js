@@ -65,6 +65,20 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   }
 });
 
+test("supplied brand art is integrated without the unrelated image", async () => {
+  const homepage = await read("index.html");
+  const services = await read("services.html");
+  const designNotes = await read("assets/generated/README.md");
+  assert.match(homepage, /woodland-night-road-v2\.jpg/);
+  assert.match(homepage, /assets\/generated\/divider\.png/);
+  assert.match(services, /assets\/generated\/service-laser\.png/);
+  assert.doesNotMatch(`${homepage}${services}`, /fire|angel|wing/i);
+  assert.match(
+    designNotes,
+    /unrelated fire-wing image[\s\S]*not stored or referenced/i,
+  );
+});
+
 test("brand and focus tokens remain centralized", async () => {
   const tokens = await read("css/tokens.css");
   assert.match(tokens, /--color-purple-700:\s*#4f0e70/);

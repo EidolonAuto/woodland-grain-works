@@ -36,10 +36,14 @@ export function initHeroResponse() {
       const bounds = hero.getBoundingClientRect();
       const x = (event.clientX - bounds.left) / bounds.width - 0.5;
       const y = (event.clientY - bounds.top) / bounds.height - 0.5;
+      hero.style.setProperty("--hero-x", `${x * -10}px`);
+      hero.style.setProperty("--hero-y", `${y * -7}px`);
       visual.style.transform = `translate3d(${x * 13}px, ${y * 10}px, 0) rotateX(${-y * 2}deg) rotateY(${x * 2}deg)`;
     });
   });
   hero.addEventListener("pointerleave", () => {
+    hero.style.removeProperty("--hero-x");
+    hero.style.removeProperty("--hero-y");
     visual.style.transform = "";
   });
 }
