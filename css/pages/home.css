@@ -75,7 +75,7 @@
 
 .hero__grid {
   z-index: 2;
-  inset: var(--header-height) 1rem 2rem;
+  inset: var(--header-height) var(--edge-gutter) var(--edge-gutter);
   border: 1px solid rgba(255, 255, 255, 0.055);
 }
 
@@ -84,7 +84,7 @@
   z-index: 3;
   display: grid;
   align-items: center;
-  padding-block: calc(var(--header-height) + 3.5rem) 4rem;
+  padding-block: calc(var(--header-height) + 3rem) 3rem;
 }
 
 .hero__copy {
@@ -94,6 +94,7 @@
 
 .hero h1 {
   margin-top: var(--space-5);
+  font-size: clamp(3.15rem, 15vw, 5.1rem);
 }
 
 .hero h1 span {
@@ -108,7 +109,7 @@
 .hero__lede {
   margin-top: var(--space-5);
   color: #c9c1c8;
-  font-size: clamp(1rem, 0.94rem + 0.28vw, 1.2rem);
+  font-size: clamp(0.98rem, 0.94rem + 0.28vw, 1.2rem);
 }
 
 .hub-enter {
@@ -151,7 +152,7 @@
   position: relative;
   width: min(100%, 34rem);
   justify-self: center;
-  margin-top: -2rem;
+  margin-top: -1rem;
   opacity: 0.46;
   mix-blend-mode: screen;
 }
@@ -215,7 +216,7 @@
 }
 
 .doors-heading {
-  padding-block: var(--space-9) var(--space-7);
+  padding-block: var(--space-8) var(--space-6);
 }
 
 .doors-heading h2 {
@@ -224,9 +225,34 @@
 }
 
 .doors-heading__divider {
-  width: min(20rem, 68vw);
+  position: relative;
+  display: flex;
+  width: min(17rem, 72vw);
+  height: 1rem;
+  align-items: center;
   margin-top: var(--space-6);
-  opacity: 0.72;
+  color: var(--color-gold-500);
+}
+
+.doors-heading__divider::before,
+.doors-heading__divider::after {
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid currentcolor;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.doors-heading__divider span {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-500),
+    var(--color-purple-glow),
+    var(--color-gold-500)
+  );
+  box-shadow: 0 0 12px rgba(155, 66, 194, 0.3);
 }
 
 .portal-grid {
@@ -240,10 +266,10 @@
 
   position: relative;
   display: grid;
-  min-height: 31rem;
+  min-height: 25rem;
   align-content: space-between;
   overflow: hidden;
-  padding: clamp(1.35rem, 4vw, 3rem);
+  padding: clamp(1.25rem, 4vw, 3rem);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   background:
     radial-gradient(
@@ -298,7 +324,7 @@
   position: relative;
   z-index: 2;
   align-self: end;
-  margin-bottom: var(--space-7);
+  margin-bottom: var(--space-6);
 }
 
 .portal__copy p {
@@ -311,7 +337,7 @@
 
 .portal__copy h3 {
   max-width: 9ch;
-  font-size: clamp(2.7rem, 7vw, 5.8rem);
+  font-size: clamp(2.5rem, 11vw, 5.8rem);
 }
 
 .portal__action {
@@ -354,8 +380,8 @@
 .portal__medallions {
   position: absolute;
   z-index: 1;
-  top: 18%;
-  right: 6%;
+  top: 15%;
+  right: 4%;
   display: flex;
   width: 62%;
   justify-content: flex-end;
@@ -451,7 +477,7 @@
 
 .hub-signals {
   overflow: hidden;
-  padding-block: 1rem;
+  padding-block: 0.85rem;
   background: var(--color-gold-500);
   color: var(--color-ink-950);
 }
@@ -507,7 +533,15 @@
   }
 
   .portal {
-    min-height: 38rem;
+    min-height: 32rem;
+  }
+
+  .doors-heading {
+    padding-block: var(--space-9) var(--space-7);
+  }
+
+  .hero h1 {
+    font-size: var(--step-4);
   }
 }
 
@@ -526,6 +560,14 @@
 }
 
 @media (max-width: 47.99rem) {
+  .hero {
+    min-height: max(43rem, 100svh);
+  }
+
+  .hero__layout {
+    align-content: center;
+  }
+
   .hero__backdrop img {
     object-position: 66% center;
   }
@@ -537,12 +579,50 @@
   }
 
   .hero-visual {
-    width: min(95vw, 25rem);
+    position: absolute;
+    right: -7rem;
+    bottom: 2rem;
+    width: 21rem;
+    margin: 0;
+    opacity: 0.24;
+  }
+
+  .portal > svg,
+  .portal__image,
+  .portal__asset {
+    inset: 8% -18% 8% 16%;
+  }
+
+  .portal__medallions {
+    width: 67%;
+  }
+
+  .portal__asset--forest {
+    inset: 18% -8% 8% 14%;
+  }
+
+  .portal__asset--gem {
+    inset: 12% -2% auto auto;
+    width: 50%;
   }
 
   .signal-track {
     justify-content: flex-start;
     overflow-x: auto;
+  }
+}
+
+@media (max-width: 23rem) {
+  .hero h1 {
+    font-size: 2.85rem;
+  }
+
+  .portal {
+    min-height: 23rem;
+  }
+
+  .portal__copy h3 {
+    font-size: 2.3rem;
   }
 }
 

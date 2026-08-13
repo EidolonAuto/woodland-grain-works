@@ -45,7 +45,8 @@
   --shadow-glow: 0 0 80px rgba(79, 14, 112, 0.28);
   --content: 76rem;
   --content-wide: 92rem;
-  --header-height: 5.5rem;
+  --header-height: 4.75rem;
+  --edge-gutter: clamp(1rem, 4vw, 2rem);
   --duration-fast: 180ms;
   --duration-base: 420ms;
   --duration-slow: 900ms;
@@ -57,4 +58,10 @@
   --z-cursor: 1000;
   --focus-ring:
     0 0 0 3px var(--color-paper-50), 0 0 0 6px var(--color-purple-glow);
+}
+
+@media (min-width: 56rem) {
+  :root {
+    --header-height: 5.5rem;
+  }
 }

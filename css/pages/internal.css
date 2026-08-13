@@ -5,10 +5,10 @@
 .interior-hero {
   position: relative;
   display: grid;
-  min-height: min(52rem, 88svh);
+  min-height: min(45rem, 82svh);
   align-items: end;
   overflow: hidden;
-  padding-block: calc(var(--header-height) + var(--space-8)) var(--space-8);
+  padding-block: calc(var(--header-height) + var(--space-7)) var(--space-7);
   background:
     radial-gradient(
       circle at 78% 42%,
@@ -34,7 +34,7 @@
   position: relative;
   z-index: 1;
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-6);
   align-items: end;
 }
 
@@ -45,12 +45,12 @@
 
 .interior-hero__lede {
   color: #c9c1c8;
-  font-size: var(--step-1);
+  font-size: clamp(1rem, 0.95rem + 0.6vw, var(--step-1));
 }
 
 .interior-hero__art {
   position: relative;
-  width: min(100%, 35rem);
+  width: min(92%, 32rem);
   justify-self: center;
   color: var(--color-gold-300);
   opacity: 0.58;
@@ -74,7 +74,7 @@
 }
 
 .interior-section {
-  padding-block: var(--space-9);
+  padding-block: var(--space-8);
 }
 
 .interior-intro {
@@ -98,7 +98,7 @@
 .capability {
   position: relative;
   display: grid;
-  min-height: 30rem;
+  min-height: 0;
   align-items: center;
   overflow: hidden;
   border-top: 1px solid var(--color-paper-200);
@@ -110,9 +110,9 @@
 
 .capability__layout {
   display: grid;
-  gap: var(--space-7);
+  gap: var(--space-6);
   align-items: center;
-  padding-block: var(--space-8);
+  padding-block: var(--space-7);
 }
 
 .capability__number {
@@ -153,7 +153,7 @@
 
 .capability__visual {
   position: relative;
-  min-height: 20rem;
+  min-height: 17rem;
   overflow: hidden;
   background: var(--color-ink-900);
   color: var(--color-gold-300);
@@ -227,7 +227,7 @@
 
 .study-notice .shell {
   display: flex;
-  gap: var(--space-4);
+  gap: var(--space-3);
   align-items: flex-start;
 }
 
@@ -251,14 +251,14 @@
 
 .project-study {
   display: grid;
-  min-height: 42rem;
+  min-height: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   scroll-margin-top: var(--header-height);
 }
 
 .project-study__visual {
   position: relative;
-  min-height: 25rem;
+  min-height: 20rem;
   overflow: hidden;
   background: #171318;
 }
@@ -292,7 +292,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: var(--space-7) max(1rem, calc((100vw - var(--content)) / 2));
+  padding: var(--space-7) var(--edge-gutter);
 }
 
 .project-study h2 {
@@ -373,7 +373,7 @@
 }
 
 .manifesto__line {
-  padding-block: var(--space-7);
+  padding-block: var(--space-6);
   border-bottom: 1px solid rgba(255, 255, 255, 0.13);
   font-family: var(--font-display);
   font-size: clamp(2rem, 6vw, 5.5rem);
@@ -418,7 +418,7 @@
 
 .contact-console__layout {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-7);
 }
 
 .contact-console h2 {
@@ -430,7 +430,7 @@
 }
 
 .contact-routes {
-  margin-top: var(--space-7);
+  margin-top: var(--space-6);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
@@ -482,6 +482,7 @@
 .inquiry-form select,
 .inquiry-form textarea {
   width: 100%;
+  min-height: 3rem;
   padding: 0.8rem 0.2rem;
   border: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
@@ -510,7 +511,43 @@
   display: grid;
   gap: var(--space-5);
   align-items: center;
-  padding-block: var(--space-8);
+  padding-block: var(--space-7);
+}
+
+@media (max-width: 47.99rem) {
+  .interior-hero {
+    min-height: 42rem;
+  }
+
+  .interior-hero__art {
+    max-height: 16rem;
+  }
+
+  .interior-hero__art svg {
+    max-height: 16rem;
+  }
+
+  .project-study__visual {
+    min-height: 0;
+    aspect-ratio: 4 / 3;
+  }
+
+  .study-notice .shell {
+    display: grid;
+  }
+
+  .capability h2,
+  .project-study h2 {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .principles {
+    gap: var(--space-6);
+  }
+
+  .inquiry-form {
+    margin-inline: calc(var(--edge-gutter) * -0.25);
+  }
 }
 
 .next-door p {
@@ -520,6 +557,10 @@
 }
 
 @media (min-width: 48rem) {
+  .interior-section {
+    padding-block: var(--space-9);
+  }
+
   .interior-hero__layout,
   .interior-intro,
   .capability__layout,

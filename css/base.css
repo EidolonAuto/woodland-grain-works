@@ -7,7 +7,7 @@ body {
   color: var(--color-ink-800);
   font-family: var(--font-body);
   font-size: var(--step-0);
-  line-height: 1.65;
+  line-height: 1.58;
 }
 section[id] {
   scroll-margin-top: var(--header-height);
@@ -52,11 +52,11 @@ p {
   max-width: 65ch;
 }
 .shell {
-  width: min(calc(100% - 2rem), var(--content));
+  width: min(calc(100% - (var(--edge-gutter) * 2)), var(--content));
   margin-inline: auto;
 }
 .section {
-  padding-block: var(--space-9);
+  padding-block: var(--space-8);
 }
 .eyebrow {
   display: flex;
@@ -93,9 +93,12 @@ p {
   color: var(--color-paper-200);
 }
 @media (min-width: 48rem) {
-  .shell {
-    width: min(calc(100% - 4rem), var(--content));
+  .section {
+    padding-block: var(--space-9);
   }
+}
+
+@media (min-width: 70rem) {
   .section {
     padding-block: var(--space-10);
   }
