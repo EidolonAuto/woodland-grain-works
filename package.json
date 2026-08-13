@@ -1,0 +1,30 @@
+{
+  "name": "woodland-grain-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Static V1 website for Woodland Grain Works.",
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "check": "npm run validate:html && npm run lint && npm test",
+    "test": "node --test tests/*.test.js",
+    "validate:html": "html-validate index.html",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint js tests",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "globals": "^16.0.0",
+    "html-validate": "^9.0.0",
+    "prettier": "^3.0.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard": "^38.0.0"
+  }
+}

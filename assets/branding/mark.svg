@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <symbol id="mark" viewBox="0 0 64 64">
+    <path fill="none" stroke="currentColor" stroke-width="2" d="M32 4.5c15.2 0 27.5 12.3 27.5 27.5S47.2 59.5 32 59.5 4.5 47.2 4.5 32 16.8 4.5 32 4.5Z"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.5" d="M32 12c11 0 20 9 20 20s-9 20-20 20-20-9-20-20 9-20 20-20Zm0 8c6.6 0 12 5.4 12 12s-5.4 12-12 12-12-5.4-12-12 5.4-12 12-12Z"/>
+    <path fill="currentColor" d="m32 17-5.5 12h3l-6 11h6v9h5v-9h6l-6-11h3L32 17Z"/>
+  </symbol>
+</svg>
+

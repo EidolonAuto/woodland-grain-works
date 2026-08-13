@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs><linearGradient id="sky" y2="1"><stop stop-color="#17101c"/><stop offset="1" stop-color="#14251f"/></linearGradient><radialGradient id="glow"><stop stop-color="#d29a45" stop-opacity=".35"/><stop offset="1" stop-color="#4f0e70" stop-opacity="0"/></radialGradient></defs>
+  <rect width="1200" height="800" fill="url(#sky)"/><circle cx="770" cy="360" r="330" fill="url(#glow)"/>
+  <g fill="#0a1511"><path d="m0 590 120-260 120 260H0Zm150 0 145-350 145 350H150Zm770 0 125-300 125 300H920Z"/><path d="M0 585h1200v215H0z"/></g>
+  <path d="M420 570V385l168-120 180 120v185H420Z" fill="#271a25" stroke="#c79543" stroke-width="3"/><path d="m387 408 201-143 214 143" fill="none" stroke="#e3bf79" stroke-width="4"/><rect x="490" y="420" width="95" height="150" fill="#bb7f38" opacity=".65"/><rect x="630" y="410" width="78" height="78" fill="#d7a653" opacity=".8"/>
+  <g fill="none" stroke="#a96fd0" stroke-width="2"><path d="M538 472 377 350 246 438M669 449l165-112 140 96M538 472l131-23"/></g><g fill="#edc879"><circle cx="538" cy="472" r="8"/><circle cx="669" cy="449" r="8"/><circle cx="377" cy="350" r="8"/><circle cx="246" cy="438" r="8"/><circle cx="834" cy="337" r="8"/><circle cx="974" cy="433" r="8"/></g>
+  <text x="58" y="740" fill="#bcb0bd" font-family="Arial,sans-serif" font-size="18" letter-spacing="7">CONNECTED SPACE / QUIET TECHNOLOGY</text>
+</svg>
+
