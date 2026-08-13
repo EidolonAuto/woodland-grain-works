@@ -70,8 +70,15 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   const internal = await read("css/pages/internal.css");
   assert.match(motion, /initPageIntro/);
   assert.match(motion, /const approach/);
+  assert.match(motion, /--parallax-near/);
   assert.match(animations, /\.js:not\(\.is-ready\)/);
-  assert.match(home, /portal-trace[^;]*1 forwards/);
+  assert.match(home, /\.spatial-render__image/);
+  assert.match(home, /\.portal__render/);
+  assert.match(
+    await read("index.html"),
+    /assets\/generated\/3d\/precision-relic\.png/,
+  );
+  assert.match(home, /perspective:\s*72rem/);
   assert.match(internal, /clip-path:\s*inset\(0 0 100% 0\)/);
 });
 

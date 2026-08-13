@@ -27,12 +27,15 @@ Reduced-motion mode removes continuous scanning and Canvas ambience, resolves dr
 
 Motion follows a staged editorial system: a short layered entrance establishes hierarchy, content reveals once with directional depth, and technical linework draws only when it becomes relevant. Fine-pointer responses use damped interpolation rather than snapping; ambient movement stays subordinate to reading.
 
+The homepage uses a reusable `spatial-render` template rather than a WebGL dependency. High-resolution transparent product renders occupy the foreground while a shadow, violet halo, and glass-light plane move at different pointer and scroll depths. Portal renders reuse the same template with lazy loading, fixed dimensions, touch-safe layouts, and a fully static reduced-motion fallback.
+
 ## Supplied brand artwork
 
 The business-card artwork establishes a richer purple-night, engraved-gold visual vocabulary. The website uses it selectively:
 
 - `assets/backgrounds/woodland-night-road-v2.jpg` is a generated wide adaptation of the supplied square landscape, with dark text-safe space on the left.
 - `assets/generated/` preserves the original transparent extractions. `assets/generated/hd/` contains the retina-ready set used by the site: six 1254 × 1254 high-detail service redraws plus padded 4× decorative layers.
+- `assets/generated/3d/` contains the transparent high-resolution concept renders used by the homepage spatial template. They are interface artwork, not examples of completed customer projects.
 - `assets/branding/legacy/` preserves the supplied transparent maker seal and print SVG as reference assets.
 - The homepage section divider is a single CSS-rendered brass and purple line, keeping the ornament crisp and visually quieter at every viewport size.
 

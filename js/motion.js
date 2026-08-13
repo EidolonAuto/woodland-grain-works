@@ -62,6 +62,10 @@ export function initHeroResponse() {
     visual.style.setProperty("--hero-visual-y", `${state.y * 10}px`);
     visual.style.setProperty("--hero-rotate-x", `${state.y * -1.5}deg`);
     visual.style.setProperty("--hero-rotate-y", `${state.x * 1.5}deg`);
+    visual.style.setProperty("--artifact-far-x", `${state.x * -9}px`);
+    visual.style.setProperty("--artifact-far-y", `${state.y * -7}px`);
+    visual.style.setProperty("--artifact-near-x", `${state.x * 15}px`);
+    visual.style.setProperty("--artifact-near-y", `${state.y * 11}px`);
 
     if (
       Math.abs(state.x - state.targetX) > 0.001 ||
@@ -196,6 +200,9 @@ export function initScrollMotion() {
       1,
     );
     hero.style.setProperty("--hero-scroll", progress.toFixed(3));
+    hero.style.setProperty("--parallax-far", `${progress * 16}px`);
+    hero.style.setProperty("--parallax-mid", `${progress * -10}px`);
+    hero.style.setProperty("--parallax-near", `${progress * -24}px`);
     frame = 0;
   };
   const schedule = () => {

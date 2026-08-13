@@ -134,55 +134,20 @@
           </div>
           <div class="hero-visual" data-hero-visual aria-hidden="true">
             <div class="hero-visual__glow"></div>
-            <svg class="hero-visual__art" viewBox="0 0 720 720">
-              <g class="hero-rings">
-                <path
-                  pathLength="1"
-                  d="M360 52c170 0 308 138 308 308S530 668 360 668 52 530 52 360 190 52 360 52Z"
-                />
-                <path
-                  pathLength="1"
-                  d="M360 105c141 0 255 114 255 255S501 615 360 615 105 501 105 360 219 105 360 105Z"
-                />
-                <path
-                  pathLength="1"
-                  d="M360 161c110 0 199 89 199 199s-89 199-199 199-199-89-199-199 89-199 199-199Z"
-                />
-                <path
-                  pathLength="1"
-                  d="M360 220c77 0 140 63 140 140s-63 140-140 140-140-63-140-140 63-140 140-140Z"
-                />
-                <path
-                  pathLength="1"
-                  d="M360 278c45 0 82 37 82 82s-37 82-82 82-82-37-82-82 37-82 82-82Z"
-                />
-              </g>
-              <g class="hero-tree">
-                <path
-                  d="m360 162-50 105h31l-63 119h54v155h56V386h54l-63-119h31l-50-105Z"
-                />
-                <path
-                  d="M360 306v235M326 360l34 32 36-37M304 429l56 48 62-55"
-                />
-              </g>
-              <g class="hero-circuit">
-                <path
-                  pathLength="1"
-                  d="M144 338h99l42-42h41M394 255h54l36-36h76M412 417h57l43 43h76M180 488h76l35-35"
-                />
-                <circle cx="144" cy="338" r="5" />
-                <circle cx="560" cy="219" r="5" />
-                <circle cx="588" cy="460" r="5" />
-                <circle cx="180" cy="488" r="5" />
-              </g>
-              <g class="hero-measure">
-                <path
-                  d="M89 625h542M115 613v24m52-16v16m52-24v24m52-16v16m52-24v24m52-16v16m52-24v24m52-16v16m52-24v24m52-16v16"
-                />
-                <text x="90" y="655">CRAFT / LIGHT / SIGNAL / FORM</text>
-              </g>
-              <line class="hero-beam" x1="118" y1="0" x2="118" y2="720" />
-            </svg>
+            <div class="hero-visual__stage spatial-render spatial-render--hero">
+              <div class="artifact-shadow"></div>
+              <div class="spatial-render__halo"></div>
+              <img
+                class="spatial-render__image"
+                src="assets/generated/3d/precision-relic.png"
+                alt=""
+                width="1536"
+                height="1024"
+                fetchpriority="high"
+                decoding="async"
+              />
+              <div class="spatial-render__glass" aria-hidden="true"></div>
+            </div>
             <div class="hero-visual__label hero-visual__label--top">
               WG / HUB
             </div>
@@ -217,35 +182,18 @@
               <h3>Services</h3>
             </div>
             <span class="portal__action">Open the tool wall ↗</span>
-            <div class="portal__medallions" aria-hidden="true">
+            <div class="portal__render spatial-render" aria-hidden="true">
               <img
-                src="assets/generated/hd/service-laser.png"
+                class="spatial-render__image"
+                src="assets/generated/3d/laser-fabrication.png"
                 alt=""
+                width="1536"
+                height="1024"
                 loading="lazy"
                 decoding="async"
               />
-              <img
-                src="assets/generated/hd/service-woodworking.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
-              <img
-                src="assets/generated/hd/service-smart-home.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+              <span class="spatial-render__halo"></span>
             </div>
-            <svg viewBox="0 0 600 500" aria-hidden="true">
-              <g class="portal-rings">
-                <circle cx="420" cy="240" r="170" />
-                <circle cx="420" cy="240" r="120" />
-                <circle cx="420" cy="240" r="70" />
-              </g>
-              <path class="portal-line" d="M40 352h165l76-76h140l91-91" />
-              <circle class="portal-node" cx="512" cy="185" r="7" />
-            </svg>
           </a>
           <a
             class="portal portal--work reveal"
@@ -258,8 +206,17 @@
               <h3>Selected work</h3>
             </div>
             <span class="portal__action">Enter the project room ↗</span>
-            <div class="portal__image">
-              <img src="assets/illustrations/project-signal-grain.svg" alt="" />
+            <div class="portal__render spatial-render" aria-hidden="true">
+              <img
+                class="spatial-render__image"
+                src="assets/generated/3d/precision-relic.png"
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="spatial-render__halo"></span>
             </div>
           </a>
           <a class="portal portal--about reveal" href="about.html" data-portal>
@@ -269,19 +226,18 @@
               <h3>About the workshop</h3>
             </div>
             <span class="portal__action">Walk behind the work ↗</span>
-            <div class="portal__asset portal__asset--forest" aria-hidden="true">
-              <img src="assets/generated/hd/forest.png" alt="" loading="lazy" />
+            <div class="portal__render spatial-render" aria-hidden="true">
+              <img
+                class="spatial-render__image"
+                src="assets/generated/3d/forest-model.png"
+                alt=""
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+              <span class="spatial-render__halo"></span>
             </div>
-            <svg viewBox="0 0 600 500" aria-hidden="true">
-              <path
-                class="portal-forest"
-                d="m86 450 78-190 78 190m-28 0 112-300 112 300m-42 0 72-174 72 174"
-              />
-              <path
-                class="portal-line"
-                d="M30 421h540M62 405v32m64-20v20m64-32v32m64-20v20m64-32v32m64-20v20m64-32v32"
-              />
-            </svg>
           </a>
           <a
             class="portal portal--contact reveal"
@@ -294,17 +250,18 @@
               <h3>Bring an idea</h3>
             </div>
             <span class="portal__action">Send a signal ↗</span>
-            <div class="portal__asset portal__asset--gem" aria-hidden="true">
-              <img src="assets/generated/hd/gem.png" alt="" loading="lazy" />
-            </div>
-            <svg viewBox="0 0 600 500" aria-hidden="true">
-              <path
-                class="portal-pulse"
-                pathLength="1"
-                d="M20 270h98l42-108 77 232 71-183 48 59h224"
+            <div class="portal__render spatial-render" aria-hidden="true">
+              <img
+                class="spatial-render__image"
+                src="assets/generated/3d/signal-orb.png"
+                alt=""
+                width="1214"
+                height="1295"
+                loading="lazy"
+                decoding="async"
               />
-              <circle class="portal-node" cx="580" cy="270" r="7" />
-            </svg>
+              <span class="spatial-render__halo"></span>
+            </div>
           </a>
         </div>
       </section>

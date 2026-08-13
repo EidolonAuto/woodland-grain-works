@@ -84,52 +84,6 @@
   opacity: 0;
   transform: translate3d(2rem, 1rem, 0) scale(0.96);
 }
-.js.is-ready .hero-rings path {
-  fill: none;
-  stroke: rgba(227, 191, 121, 0.34);
-  stroke-width: 1.2;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw-ring 2.4s var(--ease-out) forwards;
-}
-.hero-rings path:nth-child(2) {
-  animation-delay: 0.15s;
-}
-.hero-rings path:nth-child(3) {
-  animation-delay: 0.3s;
-}
-.hero-rings path:nth-child(4) {
-  animation-delay: 0.45s;
-}
-.hero-rings path:nth-child(5) {
-  animation-delay: 0.6s;
-}
-.js.is-ready .hero-tree {
-  opacity: 0;
-  animation: fade-up 1.2s 0.8s var(--ease-out) forwards;
-}
-.js.is-ready .hero-circuit path {
-  fill: none;
-  stroke: rgba(155, 66, 194, 0.55);
-  stroke-width: 1;
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: draw-ring 1.8s 1.2s var(--ease-out) forwards;
-}
-.hero-circuit circle {
-  fill: var(--color-gold-300);
-}
-.hero-beam {
-  stroke: url(#unused);
-  stroke: var(--color-gold-300);
-  stroke-width: 1;
-  filter: drop-shadow(0 0 8px var(--color-gold-300));
-  opacity: 0;
-}
-
-.js.is-ready .hero-beam {
-  animation: scan-beam 2.8s 1.25s var(--ease-in-out) 1 both;
-}
 .engrave-lines path {
   fill: none;
   stroke: currentColor;
@@ -174,24 +128,6 @@
     transform: none;
   }
 }
-@keyframes scan-beam {
-  0%,
-  100% {
-    opacity: 0;
-    transform: translateX(0);
-  }
-  15% {
-    opacity: 0.7;
-  }
-  50% {
-    opacity: 0.7;
-    transform: translateX(480px);
-  }
-  65% {
-    opacity: 0;
-    transform: translateX(480px);
-  }
-}
 @keyframes engrave-scan {
   0%,
   100% {
@@ -231,13 +167,8 @@
     opacity: 1;
     transform: none;
   }
-  .hero-rings path,
-  .hero-circuit path,
   .engrave-lines path {
     stroke-dashoffset: 0;
-  }
-  .hero-tree {
-    opacity: 1;
   }
   .hero__particles {
     display: none;
