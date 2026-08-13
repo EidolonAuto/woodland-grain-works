@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eidolonauto.github.io/woodland-grain-works/sitemap.xml

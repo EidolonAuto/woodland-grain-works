@@ -2,35 +2,36 @@
 
 ## Current state
 
-V1 is a provider-neutral static site. `index.html` owns durable semantic content; modular stylesheets compose the visual system; ES modules add optional behavior. No compilation step is required to serve the website.
+V1 is a provider-neutral, multi-page static site. The homepage is an animated navigation hub; Services, Work, About, and Contact are dedicated HTML documents with a calmer editorial rhythm. Semantic content and links work without JavaScript. ES modules add optional reveal, pointer, Canvas, and data-rendering behavior.
 
 ```text
-index.html
+*.html
   ├─ css/tokens.css → shared visual contract
   ├─ css/base.css + components.css → global presentation
-  ├─ css/animations.css + pages/home.css → motion and composition
+  ├─ css/animations.css → shared motion and reduced-motion behavior
+  ├─ css/pages/home.css → animated hub composition
+  ├─ css/pages/internal.css → destination page composition
   └─ js/main.js
        ├─ navigation.js
        ├─ motion.js → shared reveal and pointer response
-       ├─ particles.js → bounded Canvas ambience
-       └─ portfolio.js → content data and DOM rendering
+       ├─ particles.js → bounded homepage Canvas ambience
+       └─ portfolio.js → project data and rendering
 ```
 
 ## Decisions
 
-- **No framework:** V1 state and rendering needs are small; native APIs keep the payload, failure surface, and maintenance burden low.
-- **One-page V1:** anchor navigation makes every route real while the first milestone focuses effort on a complete homepage. Standalone service and project pages can be introduced when verified content warrants them.
-- **Portfolio data module:** project content is a plain object collection, ready to be replaced by fetched JSON or an API later.
-- **Canvas is decorative:** the ambient system is ignored by assistive technology, uses a capped pixel ratio and low particle count, pauses in hidden tabs, and turns off for reduced motion.
-- **Original SVG studies:** launch visuals avoid licensing risk and are explicitly distinguished from completed customer projects.
+- **No framework or build output:** native APIs keep deployment portable and the runtime small.
+- **Hub-and-destinations model:** the homepage creates atmosphere and directs visitors; destination pages carry detail without repeating a corporate landing-page funnel.
+- **Portfolio data module:** project content is a plain object collection ready to become JSON or API data later.
+- **Decorative Canvas only:** particles are capped, ignored by assistive technology, paused in hidden tabs, and disabled for reduced motion.
+- **Original SVG studies:** visuals avoid licensing risk and are explicitly distinguished from completed customer projects.
 
 ## Content boundaries
 
-Ordinary page copy is in HTML. Repeating project entries live in JavaScript data. If editing volume grows substantially, migrate the data source without changing the rendering and design contracts. Do not build a fake local database.
+Durable page copy lives in HTML. Repeating project entries live in JavaScript data. The contact interface remains disabled until a secure endpoint, privacy handling, abuse controls, and verified business details exist.
 
 ## Future integration points
 
-- Inquiry form: secure serverless or hosted form endpoint with server-side validation, spam protection, retention rules, and transparent user feedback.
-- Portfolio: static JSON, headless API, or generated files with the same project schema.
-- Analytics: opt-in, privacy-aware configuration only; none ships by default.
-
+- Inquiry form: a secure serverless or hosted form endpoint with server-side validation and understandable error states.
+- Portfolio: static JSON, a headless API, or generated documents retaining the current project schema.
+- Analytics: opt-in and privacy-aware only; none ships by default.

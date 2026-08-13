@@ -1,15 +1,20 @@
-import { initNavigation } from './navigation.js';
-import { initHeroResponse, initMagneticElements, initReveals } from './motion.js';
-import { initParticles } from './particles.js';
-import { renderProjects } from './portfolio.js';
+import { initNavigation } from "./navigation.js";
+import {
+  initHeroResponse,
+  initMagneticElements,
+  initPortalResponse,
+  initReveals,
+} from "./motion.js";
+import { initParticles } from "./particles.js";
+import { renderProjects } from "./portfolio.js";
 
 renderProjects();
 initNavigation();
 initReveals();
 initHeroResponse();
 initMagneticElements();
+initPortalResponse();
 initParticles();
 
-const year = document.querySelector('[data-current-year]');
+const year = document.querySelector("[data-current-year]");
 if (year) year.textContent = String(new Date().getFullYear());
-

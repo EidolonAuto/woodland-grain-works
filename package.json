@@ -11,7 +11,7 @@
   "scripts": {
     "check": "npm run validate:html && npm run lint && npm test",
     "test": "node --test tests/*.test.js",
-    "validate:html": "html-validate index.html",
+    "validate:html": "html-validate \"*.html\"",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint js tests",
     "lint:css": "stylelint \"css/**/*.css\"",

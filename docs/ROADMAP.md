@@ -1,25 +1,27 @@
 # Roadmap
 
-## V1 foundation — implemented
+## V1 visual foundation — implemented
 
-- Original identity, token system, responsive navigation, immersive hero, service composition, concept portfolio, process story, inquiry UI, footer, reduced-motion behavior, and static deployment automation.
+- Animated homepage hub with four accessible destination portals.
+- Dedicated Services, Work, About, and Contact pages.
+- Production GitHub Pages canonical, Open Graph, sitemap, and robots metadata.
+- Original SVG visuals, responsive navigation, design tokens, modular motion, and reduced-motion fallbacks.
+- Clearly labeled concept studies and an intentionally disabled inquiry preview.
 
-## Launch readiness — next
+## Make it real — deferred for now
 
-1. Confirm the real domain and replace canonical/social metadata placeholders.
-2. Provide verified business contact, hours, service-area, and policy details.
-3. Select and connect a secure inquiry endpoint; complete spam, privacy, error-state, and acceptance testing.
-4. Add genuine project photography and factual project narratives.
-5. Perform content approval, device testing, accessibility audit, and performance budget review against the production hostname.
+1. Select and connect a secure inquiry endpoint; complete spam, privacy, error-state, and acceptance testing.
+2. Publish verified business contact, hours, service-area, and policy details.
+3. Replace or supplement concept studies with genuine project photography and factual narratives.
+4. Choose a custom domain and update canonical URLs only after it is configured.
 
 ## Content expansion
 
-- Dedicated Services, Portfolio, About, and Contact documents once final copy and real project material exist.
-- Accessible portfolio filtering and lightbox only when gallery volume makes them useful.
-- Individual project pages with process, materials, and technical context.
+- Add project filtering and a lightbox only when genuine gallery volume justifies them.
+- Add individual project pages with process, materials, and technical context.
+- Expand service detail using verified capabilities, limitations, and imagery.
 
 ## Later integrations
 
-- API or headless content source only when the owner workflow requires it.
-- Quote intake stages, uploads, commerce, and customer accounts are separate product phases and require explicit security/data architecture.
-
+- API or content source only when the owner workflow requires it.
+- Quote intake, uploads, commerce, and customer accounts remain separate product phases with explicit security and data architecture.
