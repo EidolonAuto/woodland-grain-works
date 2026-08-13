@@ -24,7 +24,7 @@ test("every public page provides semantic landmarks and production metadata", as
       }
       assert.match(
         html,
-        /<link rel="canonical" href="https:\/\/eidolonauto\.github\.io\/woodland-grain-works\//,
+        /<link[^>]*rel="canonical"[^>]*href="https:\/\/eidolonauto\.github\.io\/woodland-grain-works\//,
       );
       assert.doesNotMatch(html, /example\.com|href=["']#["']/);
     }),
@@ -84,5 +84,5 @@ test("inquiry form cannot imply a fake successful submission", async () => {
   const html = await read("contact.html");
   assert.match(html, /data-inquiry-form/);
   assert.match(html, /<button[\s\S]*?type="submit"[\s\S]*?disabled[\s\S]*?>/);
-  assert.match(html, /secure endpoint/);
+  assert.match(html, /secure\s+endpoint/);
 });
