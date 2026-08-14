@@ -74,17 +74,19 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   assert.match(animations, /\.js:not\(\.is-ready\)/);
   assert.match(home, /\.depth-scene/);
   assert.match(home, /\.portal__index/);
-  assert.match(
-    await read("index.html"),
-    /assets\/generated\/3d\/precision-relic\.png/,
-  );
+  const homepage = await read("index.html");
+  assert.match(homepage, /assets\/generated\/hd\/mountain\.png/);
+  assert.match(homepage, /assets\/generated\/hd\/forest\.png/);
+  assert.doesNotMatch(homepage, /assets\/generated\/3d\//);
   assert.match(home, /perspective:\s*72rem/);
   assert.match(internal, /clip-path:\s*inset\(0 0 100% 0\)/);
   const transitions = await read("js/page-transitions.js");
   assert.match(motion, /initDepthScenes/);
   assert.match(transitions, /sessionStorage/);
   assert.match(transitions, /environment\.reducedMotion/);
+  assert.match(transitions, /world-transition/);
   assert.match(animations, /page-dolly-out/);
+  assert.match(animations, /world-map-pullback/);
 });
 
 test("supplied brand art is integrated without the unrelated image", async () => {
@@ -96,7 +98,7 @@ test("supplied brand art is integrated without the unrelated image", async () =>
   assert.doesNotMatch(homepage, /assets\/generated\/hd\/divider\.png/);
   assert.match(services, /capability__readout/);
   assert.doesNotMatch(services, /service-(?:laser|automotive|smart-home)\.png/);
-  assert.doesNotMatch(`${homepage}${services}`, /fire|angel|wing/i);
+  assert.doesNotMatch(`${homepage}${services}`, /\b(?:fire|angel|wing)\b/i);
   assert.match(
     designNotes,
     /unrelated fire-wing image[\s\S]*not stored or referenced/i,

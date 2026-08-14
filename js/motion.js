@@ -238,11 +238,11 @@ export function initDepthScenes() {
 
       layers.forEach((layer) => {
         const depth = Number(layer.dataset.depth) || 1;
-        layer.style.setProperty("--layer-x", `${state.x * depth * 13}px`);
-        layer.style.setProperty("--layer-y", `${state.y * depth * 9}px`);
+        layer.style.setProperty("--layer-x", `${state.x * depth * 28}px`);
+        layer.style.setProperty("--layer-y", `${state.y * depth * 19}px`);
         layer.style.setProperty(
           "--layer-scroll",
-          `${scrollPosition * depth * -18}px`,
+          `${scrollPosition * depth * -42}px`,
         );
       });
 

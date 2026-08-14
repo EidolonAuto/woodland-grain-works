@@ -15,7 +15,7 @@ V1 is a provider-neutral, multi-page static site. The homepage is an animated na
        ├─ navigation.js
        ├─ motion.js → shared reveal and pointer response
        ├─ particles.js → bounded homepage Canvas ambience
-       ├─ page-transitions.js → progressive cross-page dolly transitions
+       ├─ page-transitions.js → progressive workshop-map dolly transitions
        ├─ project-note.js → local-only clipboard utility
        └─ portfolio.js → project data and rendering
 ```
