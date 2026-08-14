@@ -52,6 +52,15 @@
   --duration-slow: 900ms;
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --motion-perspective: 78rem;
+  --motion-scene-travel: 7rem;
+  --motion-layer-travel: 3.5rem;
+  --motion-depth-travel: 12rem;
+  --motion-pointer-x: 0;
+  --motion-pointer-y: 0;
+  --motion-scene-duration: 780ms;
+  --motion-detail-duration: 520ms;
+  --motion-ease-camera: cubic-bezier(0.42, 0, 0.2, 1);
   --z-base: 0;
   --z-raised: 10;
   --z-header: 100;

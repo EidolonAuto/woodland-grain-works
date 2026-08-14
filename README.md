@@ -51,4 +51,4 @@ Project artwork is explicitly labeled as concept studies. Replace or supplement 
 
 ## Dimensional motion
 
-The site creates depth from separate image and interface planes rather than modeled objects. `js/motion.js` applies damped pointer and scroll parallax only while scenes are visible. `js/page-transitions.js` turns ordinary same-origin links into a short pull-back and push-in camera move. Links remain normal links when JavaScript is unavailable, and reduced-motion mode skips both effects.
+The site creates depth from separate environmental, content, object, and foreground planes rather than modeled objects. `js/spatial-scenes.js` is the single scroll and pointer camera controller; elements opt in with `data-workshop-scene`, `data-scene-layer`, and `data-depth`. `js/page-transitions.js` applies the same layered camera language to in-page anchors and cross-document links. Links remain normal links when JavaScript is unavailable, and reduced-motion mode replaces camera travel with immediate, readable states.

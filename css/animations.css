@@ -246,9 +246,9 @@ html::after {
   }
 
   to {
-    opacity: 0.12;
-    filter: blur(4px);
-    transform: perspective(80rem) translateZ(-19rem) scale(0.69);
+    opacity: 0.42;
+    filter: blur(2px);
+    transform: perspective(80rem) translateZ(-10rem) scale(0.86);
   }
 }
 
@@ -371,5 +371,115 @@ html::after {
   html::before,
   html::after {
     display: none;
+  }
+}
+
+/* Shared spatial-scene contract. JavaScript supplies progress; CSS owns the rendering. */
+[data-workshop-scene] {
+  --scene-progress: 0;
+  --scene-distance: 0;
+
+  position: relative;
+  isolation: isolate;
+  perspective: var(--motion-perspective);
+  transform-style: preserve-3d;
+}
+
+[data-workshop-scene] [data-scene-layer] {
+  --scene-layer-x: 0px;
+  --scene-layer-y: 0px;
+  --scene-layer-z: 0px;
+  --scene-layer-scale: 1;
+  --scene-layer-opacity: 1;
+  --scene-reveal-y: 0px;
+
+  opacity: var(--scene-layer-opacity);
+  transform: perspective(var(--motion-perspective))
+    translate3d(
+      var(--scene-layer-x),
+      calc(var(--scene-layer-y) + var(--scene-reveal-y)),
+      var(--scene-layer-z)
+    )
+    scale(var(--scene-layer-scale));
+  transform-style: preserve-3d;
+  transition:
+    opacity 120ms linear,
+    transform 90ms linear;
+}
+
+[data-scene-state="active"] [data-scene-layer],
+[data-scene-state="entering"] [data-scene-layer],
+[data-scene-state="leaving"] [data-scene-layer] {
+  will-change: transform, opacity;
+}
+
+[data-camera="departing"] [data-scene-layer],
+[data-camera="departing"] [data-depth] {
+  animation: camera-layer-out var(--motion-scene-duration)
+    var(--motion-ease-camera) both;
+}
+
+[data-camera="arriving"] [data-scene-layer],
+[data-camera="arriving"] [data-depth] {
+  animation: camera-layer-in var(--motion-scene-duration) var(--ease-out) both;
+}
+
+@keyframes camera-layer-out {
+  100% {
+    opacity: var(--camera-layer-opacity, 0.35);
+    transform: perspective(var(--motion-perspective))
+      translate3d(
+        var(--scene-layer-x, var(--layer-x, 0)),
+        var(--camera-layer-y, -2rem),
+        var(--camera-layer-z, -8rem)
+      )
+      scale(var(--camera-layer-scale, 0.9));
+  }
+}
+
+@keyframes camera-layer-in {
+  0% {
+    opacity: var(--camera-layer-opacity, 0.35);
+    transform: perspective(var(--motion-perspective))
+      translate3d(
+        var(--scene-layer-x, var(--layer-x, 0)),
+        var(--camera-layer-y, 2rem),
+        var(--camera-layer-z, -8rem)
+      )
+      scale(var(--camera-layer-scale, 0.9));
+  }
+}
+
+.js .reveal[data-scene-layer] {
+  --scene-reveal-y: 2.25rem;
+
+  opacity: 0;
+}
+
+.js .reveal.is-visible[data-scene-layer] {
+  --scene-reveal-y: 0px;
+
+  opacity: var(--scene-layer-opacity);
+  transform: perspective(var(--motion-perspective))
+    translate3d(
+      var(--scene-layer-x),
+      calc(var(--scene-layer-y) + var(--scene-reveal-y)),
+      var(--scene-layer-z)
+    )
+    scale(var(--scene-layer-scale));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-scene-layer],
+  .js .reveal[data-scene-layer],
+  .js .reveal.is-visible[data-scene-layer] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  [data-camera] [data-scene-layer],
+  [data-camera] [data-depth] {
+    animation: none;
   }
 }

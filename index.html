@@ -38,12 +38,12 @@
     <link rel="stylesheet" href="css/tokens.css" />
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/animations.css?v=20260813-canvas2" />
-    <link rel="stylesheet" href="css/pages/home.css?v=20260813-canvas2" />
+    <link rel="stylesheet" href="css/animations.css?v=20260813-spatial3" />
+    <link rel="stylesheet" href="css/pages/home.css?v=20260813-spatial3" />
     <script>
       document.documentElement.classList.replace("no-js", "js");
     </script>
-    <script type="module" src="js/main.js?v=20260813-canvas2"></script>
+    <script type="module" src="js/main.js?v=20260813-spatial3"></script>
     <title>Woodland Grain Works — Enter the workshop</title>
     <script type="application/ld+json">
       {
@@ -100,8 +100,19 @@
     </header>
 
     <main id="main-content">
-      <section id="top" class="hero hub-hero" aria-labelledby="hero-title">
-        <div class="hero__backdrop" aria-hidden="true">
+      <section
+        id="top"
+        class="hero hub-hero workshop-scene"
+        aria-labelledby="hero-title"
+        data-workshop-scene
+        data-scene-id="entrance"
+      >
+        <div
+          class="hero__backdrop"
+          data-scene-layer="0.15"
+          data-scene-environment
+          aria-hidden="true"
+        >
           <img
             src="assets/backgrounds/woodland-night-road-source.jpg"
             alt=""
@@ -118,7 +129,7 @@
         ></canvas>
         <div class="hero__grid" aria-hidden="true"></div>
         <div class="shell hero__layout">
-          <div class="hero__copy" data-hero-copy>
+          <div class="hero__copy" data-hero-copy data-scene-layer="0.72">
             <p class="eyebrow"><span></span>Custom work / useful oddities</p>
             <h1 id="hero-title">
               <span>Bring the odd idea.</span
@@ -136,6 +147,7 @@
             class="hero-visual depth-scene"
             data-hero-visual
             data-depth-scene
+            data-scene-layer="1.45"
             aria-hidden="true"
           >
             <div class="hero-visual__glow"></div>
@@ -167,21 +179,28 @@
             </div>
           </div>
         </div>
+        <div
+          class="scene-occluder scene-occluder--entrance"
+          data-scene-layer="2.1"
+          aria-hidden="true"
+        ></div>
       </section>
 
       <section
         id="workshop-doors"
-        class="workshop-doors"
+        class="workshop-doors workshop-scene"
         aria-labelledby="doors-title"
+        data-workshop-scene
+        data-scene-id="tool-wall"
       >
-        <div class="shell doors-heading reveal">
+        <div class="shell doors-heading reveal" data-scene-layer="0.65">
           <p class="eyebrow"><span></span>Pick a starting point</p>
           <h2 id="doors-title">What are you here to make?</h2>
           <div class="doors-heading__divider" aria-hidden="true">
             <span></span>
           </div>
         </div>
-        <div class="portal-grid">
+        <div class="portal-grid" data-scene-layer="1.08">
           <a
             class="portal portal--services reveal"
             href="services.html"
@@ -239,11 +258,21 @@
             </div>
           </a>
         </div>
+        <div
+          class="scene-occluder scene-occluder--doors"
+          data-scene-layer="1.9"
+          aria-hidden="true"
+        ></div>
       </section>
 
-      <section class="bench-section" aria-labelledby="bench-title">
+      <section
+        class="bench-section workshop-scene"
+        aria-labelledby="bench-title"
+        data-workshop-scene
+        data-scene-id="material-bench"
+      >
         <div class="shell bench-layout">
-          <div class="bench-copy reveal">
+          <div class="bench-copy reveal" data-scene-layer="0.68">
             <p class="eyebrow"><span></span>What lands on the bench</p>
             <h2 id="bench-title">Not everything needs a neat category.</h2>
             <p>
@@ -259,6 +288,7 @@
           <div
             class="bench-object depth-scene reveal"
             data-depth-scene
+            data-scene-layer="1.42"
             aria-hidden="true"
           >
             <div
@@ -271,7 +301,7 @@
               class="bench-plane bench-plane--acrylic depth-layer"
               data-depth="1.3"
             >
-              <span>ACRYLIC / LIGHT</span>
+              <span>ACRYLIC / LIGHT</span><i class="material-glint"></i>
             </div>
             <div
               class="bench-plane bench-plane--drawing depth-layer"
@@ -279,18 +309,47 @@
             >
               <i></i><i></i><i></i><strong>LAYOUT / 01</strong>
             </div>
-            <div class="bench-wire depth-layer" data-depth="2.6"></div>
+            <div class="bench-wire depth-layer" data-depth="2.6">
+              <i class="connection-spark"></i>
+            </div>
             <span class="bench-object__label">move across the layers</span>
           </div>
         </div>
       </section>
 
-      <section class="process-section" aria-labelledby="process-title">
-        <div class="shell process-heading reveal">
+      <section
+        class="process-section workshop-scene"
+        aria-labelledby="process-title"
+        data-workshop-scene
+        data-scene-id="assembly-line"
+      >
+        <div class="shell process-heading reveal" data-scene-layer="0.65">
           <p class="eyebrow"><span></span>From loose thought to real thing</p>
           <h2 id="process-title">A practical way through the unknowns.</h2>
+          <svg
+            class="engraving-diagram"
+            viewBox="0 0 900 90"
+            role="img"
+            aria-label="Drafting line connecting four indexed process points"
+            data-engraving
+          >
+            <path class="engraving-line" d="M28 46H872" />
+            <path
+              class="engraving-line engraving-line--fine"
+              d="M164 29v34M355 29v34M546 29v34M737 29v34"
+            />
+            <path
+              class="engraving-line engraving-line--accent"
+              d="m28 46 12-8v16Z"
+            />
+            <circle class="engraving-register" cx="164" cy="46" r="6" />
+            <circle class="engraving-register" cx="355" cy="46" r="6" />
+            <circle class="engraving-register" cx="546" cy="46" r="6" />
+            <circle class="engraving-register" cx="737" cy="46" r="6" />
+            <circle class="engraving-spark" cx="872" cy="46" r="3" />
+          </svg>
         </div>
-        <ol class="process-rail">
+        <ol class="process-rail" data-scene-layer="1.06">
           <li class="reveal">
             <span>01</span>
             <h3>Show the rough idea</h3>
@@ -326,15 +385,19 @@
         </ol>
       </section>
 
-      <section class="fit-section">
+      <section
+        class="fit-section workshop-scene"
+        data-workshop-scene
+        data-scene-id="planning-desk"
+      >
         <div class="shell fit-layout">
-          <div class="fit-title reveal">
+          <div class="fit-title reveal" data-scene-layer="0.68">
             <p class="eyebrow"><span></span>A quick gut check</p>
             <h2>
               Good projects start with a real problem and some room to explore.
             </h2>
           </div>
-          <div class="fit-notes reveal">
+          <div class="fit-notes reveal" data-scene-layer="1.08">
             <article>
               <h3>Probably a good fit</h3>
               <p>

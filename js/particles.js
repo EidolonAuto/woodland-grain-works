@@ -64,4 +64,3 @@ export function initParticles() {
   document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
   onMotionPreferenceChange(() => (environment.reducedMotion ? stop() : start()));
 }
-

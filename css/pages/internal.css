@@ -926,3 +926,110 @@
     transition: none;
   }
 }
+
+/* Portfolio studies are physical specimens, not flat cards. */
+.project-object {
+  --portal-art-x: 0px;
+  --portal-art-y: 0px;
+  --portal-copy-x: 0px;
+  --portal-copy-y: 0px;
+  --portal-rotate-x: 0deg;
+  --portal-rotate-y: 0deg;
+
+  position: relative;
+  perspective: var(--motion-perspective);
+}
+
+.project-object .project-study__visual,
+.project-object .project-study__copy {
+  transition:
+    transform var(--motion-detail-duration) var(--ease-out),
+    box-shadow var(--motion-detail-duration) var(--ease-out);
+}
+
+.project-object .project-study__visual {
+  margin: clamp(1rem, 3vw, 2.5rem);
+  border: 1px solid rgba(227, 191, 121, 0.24);
+  box-shadow:
+    0 1.8rem 3.8rem rgba(0, 0, 0, 0.34),
+    inset 0 0 0 0.35rem rgba(12, 10, 13, 0.72);
+  transform: perspective(var(--motion-perspective))
+    translate3d(var(--portal-art-x), var(--portal-art-y), 1.5rem)
+    rotateX(var(--portal-rotate-x)) rotateY(var(--portal-rotate-y));
+}
+
+.project-object .project-study__visual::before {
+  position: absolute;
+  z-index: 3;
+  top: 0.8rem;
+  left: 0.8rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid rgba(227, 191, 121, 0.62);
+  border-radius: 50%;
+  background: #0c0a0d;
+  box-shadow: inset 0 0 0 2px #2a242b;
+  content: "";
+}
+
+.project-object .project-study__copy {
+  position: relative;
+  z-index: 2;
+  transform: translate3d(var(--portal-copy-x), var(--portal-copy-y), 0);
+}
+
+.project-object--engraved-plate .project-study__visual {
+  background: repeating-linear-gradient(4deg, #1c130f 0 2px, #0f0b0b 2px 8px);
+}
+
+.project-object--drawing-sheet .project-study__visual {
+  border-color: rgba(42, 36, 43, 0.24);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 2.9rem,
+      rgba(169, 119, 46, 0.18) 3rem,
+      transparent 3.1rem
+    ),
+    repeating-linear-gradient(
+      #f4eee2 0 2.15rem,
+      #d9cdb8 2.2rem,
+      #f4eee2 2.25rem
+    );
+  box-shadow:
+    0 1.8rem 3.8rem rgba(0, 0, 0, 0.28),
+    inset 0 0 0 0.45rem rgba(251, 248, 241, 0.5);
+}
+
+.project-object--drawing-sheet .project-study__visual::before {
+  width: 2.6rem;
+  height: 0.8rem;
+  border: 0;
+  border-radius: 0;
+  background: rgba(42, 36, 43, 0.75);
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+}
+
+.project-object--acrylic-sample .project-study__visual {
+  border-color: rgba(155, 66, 194, 0.4);
+  background: linear-gradient(145deg, rgba(79, 14, 112, 0.52), #0c0a0d);
+  box-shadow:
+    0 2rem 4rem rgba(0, 0, 0, 0.42),
+    inset 0 0 3rem rgba(155, 66, 194, 0.18);
+}
+
+@media (hover: hover) {
+  .project-object:hover .project-study__visual {
+    box-shadow:
+      0 2.4rem 4.8rem rgba(0, 0, 0, 0.44),
+      inset 0 0 0 0.35rem rgba(227, 191, 121, 0.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-object .project-study__visual,
+  .project-object .project-study__copy {
+    transform: none;
+    transition: none;
+  }
+}

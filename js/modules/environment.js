@@ -17,4 +17,3 @@ export function onMotionPreferenceChange(callback) {
   motionQuery.addEventListener('change', callback);
   return () => motionQuery.removeEventListener('change', callback);
 }
-

@@ -480,7 +480,7 @@
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.portal {
+.workshop-doors .portal {
   --portal-x: 50%;
   --portal-y: 50%;
   --portal-art-x: 0px;
@@ -662,15 +662,15 @@
     perspective(40rem) rotateY(-4deg) translateX(-0.6rem);
 }
 
-.portal--work {
+.workshop-doors .portal--work {
   background: #111914;
 }
 
-.portal--about {
+.workshop-doors .portal--about {
   background: #171318;
 }
 
-.portal--contact {
+.workshop-doors .portal--contact {
   background:
     radial-gradient(
       circle at var(--portal-x) var(--portal-y),
@@ -1102,5 +1102,405 @@
 
   50% {
     transform: rotateX(4deg) rotateY(-3.5deg) translateY(-0.4rem);
+  }
+}
+
+/* Workshop scene layers */
+.hero-visual[data-scene-layer] {
+  transform: perspective(var(--motion-perspective))
+    translate3d(
+      var(--scene-layer-x),
+      calc(var(--scene-layer-y) + var(--hero-scroll) * -1.25rem),
+      var(--scene-layer-z)
+    )
+    scale(var(--scene-layer-scale)) rotateX(var(--hero-rotate-x))
+    rotateY(var(--hero-rotate-y));
+}
+
+.scene-occluder {
+  position: absolute;
+  z-index: 8;
+  right: -4%;
+  bottom: -4.5rem;
+  left: -4%;
+  height: 11rem;
+  pointer-events: none;
+  transform-origin: center bottom;
+}
+
+.scene-occluder--entrance {
+  background: url("../../assets/generated/hd/forest.png") center bottom / 110%
+    auto no-repeat;
+  filter: brightness(0.33) saturate(1.15)
+    drop-shadow(0 -1.2rem 2.5rem rgba(0, 0, 0, 0.55));
+  mask-image: linear-gradient(to bottom, transparent 0%, black 35%);
+  opacity: 0.9;
+}
+
+.scene-occluder--doors {
+  right: 4%;
+  bottom: -2.75rem;
+  left: 4%;
+  height: 6rem;
+  border: 1px solid rgba(227, 191, 121, 0.28);
+  background:
+    linear-gradient(
+      105deg,
+      transparent 12%,
+      rgba(155, 66, 194, 0.24) 45%,
+      transparent 70%
+    ),
+    repeating-linear-gradient(4deg, #24170f 0 2px, #160e0b 2px 8px);
+  box-shadow: 0 -1.5rem 3rem rgba(0, 0, 0, 0.38);
+  clip-path: polygon(
+    0 26%,
+    46% 12%,
+    48% 0,
+    52% 0,
+    54% 12%,
+    100% 26%,
+    100% 100%,
+    0 100%
+  );
+}
+
+/* Portal cards behave like four related objects on the same workbench. */
+.portal {
+  overflow: visible;
+  border-color: rgba(227, 191, 121, 0.23);
+  box-shadow:
+    0 1.6rem 3.5rem rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+  transform-origin: 50% 80%;
+}
+
+.portal::after {
+  position: absolute;
+  z-index: 4;
+  top: 0.9rem;
+  right: 0.9rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border: 1px solid rgba(227, 191, 121, 0.55);
+  border-radius: 50%;
+  background: #171318;
+  box-shadow: inset 0 0 0 2px #0c0a0d;
+  content: "";
+  transition: transform var(--motion-detail-duration) var(--ease-out);
+}
+
+.portal--services {
+  background:
+    linear-gradient(145deg, rgba(79, 14, 112, 0.3), transparent 48%),
+    repeating-linear-gradient(3deg, #17100d 0 2px, #0e0b0b 2px 7px);
+}
+
+.portal--work {
+  border-color: rgba(42, 36, 43, 0.2);
+  background:
+    linear-gradient(
+      90deg,
+      transparent 2.9rem,
+      rgba(169, 119, 46, 0.18) 3rem,
+      transparent 3.1rem
+    ),
+    repeating-linear-gradient(
+      #f4eee2 0 2.15rem,
+      #d9cdb8 2.2rem,
+      #f4eee2 2.25rem
+    );
+  color: var(--color-ink-950);
+  box-shadow:
+    0 1.6rem 3.8rem rgba(0, 0, 0, 0.34),
+    inset 0.9rem 0 0 #e8ddca;
+}
+
+.portal--work .portal__number,
+.portal--work .portal__action,
+.portal--work .portal__copy p,
+.portal--work .portal__index span {
+  color: var(--color-purple-700);
+}
+
+.portal--work::after {
+  width: 2.7rem;
+  height: 0.85rem;
+  border: 0;
+  border-radius: 0;
+  background: rgba(42, 36, 43, 0.78);
+  box-shadow: 0 0.22rem 0.5rem rgba(0, 0, 0, 0.22);
+  clip-path: polygon(8% 0, 92% 0, 100% 100%, 0 100%);
+}
+
+.portal--about {
+  background:
+    linear-gradient(115deg, rgba(227, 191, 121, 0.12), transparent 34%),
+    linear-gradient(145deg, #111914, #0c0a0d 74%);
+}
+
+.portal--contact {
+  border-color: rgba(155, 66, 194, 0.4);
+  background:
+    linear-gradient(120deg, rgba(255, 255, 255, 0.09), transparent 25%),
+    linear-gradient(145deg, rgba(79, 14, 112, 0.72), rgba(12, 10, 13, 0.92));
+  box-shadow:
+    0 1.8rem 4rem rgba(0, 0, 0, 0.42),
+    inset 0 0 2.5rem rgba(155, 66, 194, 0.15);
+}
+
+.portal:hover::after,
+.portal:focus-visible::after {
+  transform: rotate(90deg) scale(0.86);
+}
+
+.workshop-doors .portal__index span {
+  transition: transform var(--motion-detail-duration) var(--ease-out);
+}
+
+.portal__index span:nth-child(1) {
+  transform: translateX(-0.55rem);
+}
+
+.portal__index span:nth-child(3) {
+  transform: translateX(0.55rem);
+}
+
+.portal:hover .portal__index span,
+.portal:focus-visible .portal__index span {
+  transform: translateX(0);
+}
+
+/* Engraving, light, and connection details */
+.engraving-diagram {
+  display: block;
+  width: min(100%, 56rem);
+  margin-top: var(--space-5);
+  overflow: visible;
+}
+
+.engraving-line,
+.engraving-register {
+  fill: none;
+  stroke: rgba(227, 191, 121, 0.72);
+  stroke-dasharray: 920;
+  stroke-dashoffset: 920;
+  stroke-linecap: round;
+  stroke-width: 1.2;
+}
+
+.engraving-line--fine {
+  stroke: rgba(255, 255, 255, 0.32);
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+}
+
+.engraving-line--accent {
+  fill: rgba(155, 66, 194, 0.22);
+  stroke: var(--color-purple-glow);
+}
+
+.engraving-register {
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+}
+
+.engraving-spark {
+  fill: var(--color-gold-300);
+  filter: drop-shadow(0 0 0.45rem var(--color-gold-300));
+  opacity: 0;
+}
+
+.engraving-diagram.is-etched .engraving-line,
+.engraving-diagram.is-etched .engraving-register {
+  animation: engrave-path 1.35s var(--ease-out) forwards;
+}
+
+.engraving-diagram.is-etched .engraving-line--fine,
+.engraving-diagram.is-etched .engraving-register {
+  animation-delay: 420ms;
+}
+
+.engraving-diagram.is-etched .engraving-spark {
+  animation: engraving-contact 6s 1.25s var(--ease-out) infinite;
+}
+
+.bench-section .bench-plane--acrylic {
+  overflow: hidden;
+}
+
+.material-glint {
+  position: absolute;
+  inset: -20% auto -20% -38%;
+  width: 18%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.48),
+    transparent
+  );
+  filter: blur(0.15rem);
+  opacity: 0;
+  transform: skewX(-16deg);
+  animation: acrylic-glint 10s 2s var(--ease-in-out) infinite;
+}
+
+.connection-spark {
+  position: absolute;
+  right: -0.35rem;
+  bottom: -0.35rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--color-gold-300);
+  box-shadow:
+    0 0 0.35rem var(--color-gold-300),
+    0 0 0.9rem var(--color-purple-glow);
+  opacity: 0;
+  animation: connection-flicker 9s 3.6s linear infinite;
+}
+
+[data-scene-state="dormant"] .material-glint,
+[data-scene-state="dormant"] .connection-spark,
+[data-scene-state="dormant"] .engraving-spark {
+  animation-play-state: paused;
+}
+
+[data-scene-state="active"] .process-rail li {
+  transform: translateY(0);
+}
+
+.process-section .process-rail li {
+  transform: translateY(0.8rem);
+  transition: transform var(--motion-detail-duration) var(--ease-out);
+}
+
+.process-rail li:nth-child(2) {
+  transition-delay: 70ms;
+}
+
+.process-rail li:nth-child(3) {
+  transition-delay: 140ms;
+}
+
+.process-rail li:nth-child(4) {
+  transition-delay: 210ms;
+}
+
+@media (min-width: 48rem) and (min-height: 42rem) {
+  .bench-section {
+    min-height: 112svh;
+    padding-block: 18svh;
+  }
+
+  .bench-object {
+    position: sticky;
+    top: 20svh;
+  }
+
+  .workshop-scene {
+    scroll-margin-top: var(--header-height);
+  }
+}
+
+@media (max-width: 47.99rem) {
+  .scene-occluder--entrance {
+    bottom: -2rem;
+    height: 7rem;
+    background-size: 150% auto;
+  }
+
+  .scene-occluder--doors {
+    right: 0;
+    left: 0;
+  }
+
+  .engraving-diagram {
+    margin-top: var(--space-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workshop-scene [data-scene-layer],
+  .depth-scene [data-depth] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .material-glint,
+  .connection-spark,
+  .engraving-diagram.is-etched .engraving-line,
+  .engraving-diagram.is-etched .engraving-register,
+  .engraving-diagram.is-etched .engraving-spark {
+    animation: none;
+  }
+
+  .engraving-line,
+  .engraving-register {
+    stroke-dashoffset: 0;
+  }
+
+  .engraving-spark {
+    display: none;
+  }
+
+  .process-rail li,
+  .portal__index span {
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes engrave-path {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes engraving-contact {
+  0%,
+  2%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  0.8% {
+    opacity: 1;
+    transform: scale(1.7);
+  }
+}
+
+@keyframes acrylic-glint {
+  0%,
+  8%,
+  100% {
+    left: -38%;
+    opacity: 0;
+  }
+
+  2% {
+    opacity: 0.58;
+  }
+
+  7% {
+    left: 118%;
+    opacity: 0;
+  }
+}
+
+@keyframes connection-flicker {
+  0%,
+  1%,
+  1.7%,
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  0.4%,
+  1.3% {
+    opacity: 0.9;
+    transform: scale(1.35);
   }
 }

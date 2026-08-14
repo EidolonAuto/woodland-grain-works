@@ -2,7 +2,7 @@
 
 ## Current state
 
-V1 is a provider-neutral, multi-page static site. The homepage is an animated navigation hub; Services, Work, About, and Contact are dedicated HTML documents that feel like connected areas of one visual canvas. Semantic content and links work without JavaScript. ES modules add optional reveal, parallax, cross-page camera movement, Canvas ambience, and local utility behavior.
+V1 is a provider-neutral, multi-page static site. The homepage is an animated navigation hub; Services, Work, About, and Contact are dedicated HTML documents that feel like connected areas of one visual canvas. Semantic content and links work without JavaScript. ES modules add optional reveal, parallax, cross-page camera movement, Canvas ambience, and local utility behavior. `spatial-scenes.js` owns the shared homepage camera calculations; `page-transitions.js` reuses the same layer contract for clicked navigation.
 
 ```text
 *.html
@@ -13,9 +13,10 @@ V1 is a provider-neutral, multi-page static site. The homepage is an animated na
   ├─ css/pages/internal.css → destination page composition
   └─ js/main.js
        ├─ navigation.js
-       ├─ motion.js → shared reveal and pointer response
+       ├─ motion.js → shared reveal and object response
+       ├─ spatial-scenes.js → homepage scroll and pointer camera engine
        ├─ particles.js → bounded homepage Canvas ambience
-       ├─ page-transitions.js → progressive cross-page dolly transitions
+       ├─ page-transitions.js → in-page and cross-page camera transitions
        ├─ project-note.js → local-only clipboard utility
        └─ portfolio.js → project data and rendering
 ```
@@ -27,6 +28,19 @@ V1 is a provider-neutral, multi-page static site. The homepage is an animated na
 - **Portfolio data module:** project content is a plain object collection ready to become JSON or API data later.
 - **Bounded graphics:** particles and depth scenes are ignored by assistive technology, paused or simplified when hidden or off-screen, and static for reduced motion.
 - **Honest visual studies:** concept renders are explicitly distinguished from completed customer projects.
+
+## Spatial scene contract
+
+Homepage environments opt into one reusable contract instead of owning separate scroll listeners:
+
+- `data-workshop-scene` marks a camera environment.
+- `data-scene-layer` assigns a scene plane; larger values travel farther and represent nearer objects.
+- `data-depth-scene` and `data-depth` provide smaller pointer and scroll separation inside an object composition.
+- `data-engraving` opts an SVG into the shared observed line-reveal behavior.
+
+`spatial-scenes.js` caches document measurements and renders all active scene properties from one passive scroll listener and one scheduled animation frame. Distant scenes become dormant, stop reserving `will-change`, and pause decorative light effects. CSS owns the actual transforms through semantic custom properties, so a new scene can reuse the engine without adding JavaScript.
+
+`page-transitions.js` reuses these layers for clicked anchors and same-origin page changes. Ordinary URLs, browser history, deep anchors, focus transfer, and non-JavaScript navigation remain intact.
 
 ## Content boundaries
 

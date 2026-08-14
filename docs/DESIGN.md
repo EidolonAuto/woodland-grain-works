@@ -22,18 +22,20 @@ Reusable values live in `css/tokens.css`. Local one-off dimensions are acceptabl
 - Dust particles imply a working environment without becoming smoke or spectacle.
 - Portal artwork responds gently to fine-pointer movement; content and destinations remain fully visible on touch.
 - Section reveals are slow and controlled; procedural objects respond with damped rotation rather than novelty motion.
+- Homepage environments overlap through foreground occluders, with near planes traveling farther than background planes.
+- Project and navigation surfaces use restrained physical metaphors: engraved plates, drawing sheets, acrylic samples, clips, fasteners, and alignment marks.
 
 Reduced-motion mode removes continuous scanning and Canvas ambience, resolves drawn paths immediately, and reveals all content without translation.
 
 Motion follows a staged editorial system: a short layered entrance establishes hierarchy, content reveals once with directional depth, and technical linework draws only when it becomes relevant. Fine-pointer responses use damped interpolation rather than snapping; ambient movement stays subordinate to reading.
 
-The site treats every page as part of one dimensional canvas. The supplied square woodland-road image is the environmental backdrop; palette sheets remain working source files only. Isolated mountain, forest, and interface elements sit on separate depth planes above that backdrop. Pointer and scroll movement shift nearby planes farther than distant ones. Same-origin page changes use an inverse two-plane pull-back and push-in transition centered on the selected link, suggesting a camera moving to another area of the same workshop without introducing a second scene or map. Nothing in the depth system is presented as a fabricated product or completed technical installation.
+The site treats every page as part of one dimensional canvas. The supplied square woodland-road image is the environmental backdrop; palette sheets remain working source files only. Isolated mountain, forest, and interface elements sit on separate depth planes above that backdrop. Scroll position continuously moves nearby planes farther than distant ones and reverses naturally; fine-pointer movement adds only a small, inertial head-shift. In-page and same-origin page changes use the same retreat-and-approach layer system so navigation feels related to moving between areas of the workshop. Nothing in the depth system is presented as a fabricated product or completed technical installation.
 
 ## Supplied brand artwork
 
 The business-card artwork establishes a richer purple-night, engraved-gold visual vocabulary. The website uses it selectively:
 
-- `assets/backgrounds/woodland-night-road-v2.jpg` is a generated wide adaptation of the supplied square landscape, with dark text-safe space on the left.
+- `assets/backgrounds/woodland-night-road-source.jpg` is the exact supplied square landscape used by the homepage and transition environment.
 - `assets/generated/` preserves the original transparent extractions. `assets/generated/hd/` contains the retina-ready set used by the site: six 1254 × 1254 high-detail service redraws plus padded 4× decorative layers.
 - `assets/branding/legacy/` preserves the supplied transparent maker seal and print SVG as reference assets.
 - The homepage section divider is a single CSS-rendered brass and purple line, keeping the ornament crisp and visually quieter at every viewport size.

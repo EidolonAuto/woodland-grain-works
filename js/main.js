@@ -1,28 +1,28 @@
 import { initNavigation } from "./navigation.js";
 import {
-  initHeroResponse,
-  initDepthScenes,
   initMagneticElements,
   initPageIntro,
   initPortalResponse,
   initReveals,
-  initScrollMotion,
-} from "./motion.js?v=20260813-canvas2";
+} from "./motion.js?v=20260813-spatial3";
 import { initParticles } from "./particles.js";
-import { renderProjects } from "./portfolio.js?v=20260813-canvas2";
+import { renderProjects } from "./portfolio.js?v=20260813-spatial3";
 import { initProjectNote } from "./project-note.js";
-import { initPageTransitions } from "./page-transitions.js?v=20260813-canvas2";
+import { initPageTransitions } from "./page-transitions.js?v=20260813-spatial3";
+import {
+  initEngravingReveals,
+  initSpatialScenes,
+} from "./spatial-scenes.js?v=20260813-spatial3";
 
 renderProjects();
 initPageTransitions();
 initPageIntro();
 initNavigation();
 initReveals();
-initHeroResponse();
-initDepthScenes();
+initSpatialScenes();
+initEngravingReveals();
 initMagneticElements();
 initPortalResponse();
-initScrollMotion();
 initParticles();
 initProjectNote();
 

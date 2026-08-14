@@ -50,6 +50,7 @@ test("public page local asset and page references resolve", async () => {
 test("homepage is an interactive navigation hub with four real destinations", async () => {
   const html = await read("index.html");
   assert.match(html, /id="workshop-doors"/);
+  assert.equal((html.match(/data-workshop-scene/g) || []).length, 5);
   assert.equal((html.match(/data-portal/g) || []).length, 4);
   for (const destination of pages.slice(1))
     assert.match(html, new RegExp(`href="${destination}"`));
@@ -65,12 +66,18 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   }
 
   const motion = await read("js/motion.js");
+  const spatial = await read("js/spatial-scenes.js");
   const animations = await read("css/animations.css");
   const home = await read("css/pages/home.css");
   const internal = await read("css/pages/internal.css");
   assert.match(motion, /initPageIntro/);
   assert.match(motion, /const approach/);
-  assert.match(motion, /--parallax-near/);
+  assert.match(spatial, /initSpatialScenes/);
+  assert.match(spatial, /data-workshop-scene/);
+  assert.match(spatial, /requestAnimationFrame/);
+  assert.match(spatial, /environment\.finePointer/);
+  assert.match(spatial, /initEngravingReveals/);
+  assert.match(spatial, /"dormant"/);
   assert.match(animations, /\.js:not\(\.is-ready\)/);
   assert.match(home, /\.depth-scene/);
   assert.match(home, /\.portal__index/);
@@ -81,8 +88,10 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   assert.match(home, /perspective:\s*72rem/);
   assert.match(internal, /clip-path:\s*inset\(0 0 100% 0\)/);
   const transitions = await read("js/page-transitions.js");
-  assert.match(motion, /initDepthScenes/);
   assert.match(transitions, /sessionStorage/);
+  assert.match(transitions, /history\.pushState/);
+  assert.match(transitions, /closestWorkshopScene/);
+  assert.match(transitions, /behavior:\s*"smooth"/);
   assert.match(transitions, /environment\.reducedMotion/);
   assert.match(animations, /page-dolly-out/);
 });
@@ -119,6 +128,9 @@ test("portfolio studies are honest, linked, and keyboard accessible", async () =
   assert.match(html, /It is not presented as commissioned customer work/);
   assert.match(script, /<a class="project-card__link"/);
   assert.match(script, /href="portfolio\.html#\$\{project\.slug\}"/);
+  assert.match(script, /"engraved-plate"/);
+  assert.match(script, /"drawing-sheet"/);
+  assert.match(script, /"acrylic-sample"/);
 });
 
 test("project note builder is useful without implying network submission", async () => {

@@ -56,8 +56,12 @@ function projectCard(project, index) {
 
 function projectStudy(project, index) {
   const article = document.createElement("article");
-  article.className = "project-study reveal";
+  const material = ["engraved-plate", "drawing-sheet", "acrylic-sample"][
+    index % 3
+  ];
+  article.className = `project-study project-object project-object--${material} reveal`;
   article.id = project.slug;
+  article.dataset.objectReactive = "";
   article.innerHTML = `
     <div class="project-study__visual">
       <img src="${project.image}" alt="${project.alt}" loading="lazy" decoding="async">
