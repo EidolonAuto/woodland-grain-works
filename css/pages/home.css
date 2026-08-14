@@ -429,28 +429,12 @@
 }
 
 .workshop-doors {
-  position: relative;
   overflow: hidden;
-  background: #0b070d;
+  background: var(--color-ink-950);
   color: var(--color-paper-50);
 }
 
-.workshop-doors::before {
-  position: absolute;
-  inset: -6rem -3rem;
-  background:
-    linear-gradient(180deg, rgba(9, 6, 10, 0.52), rgba(9, 6, 10, 0.94)),
-    url("../../assets/backgrounds/woodland-night-road-v2.jpg") center 42% /
-      cover;
-  content: "";
-  filter: saturate(1.08) contrast(1.04);
-  opacity: 0.72;
-  transform: scale(1.06);
-}
-
 .doors-heading {
-  position: relative;
-  z-index: 1;
   padding-block: var(--space-8) var(--space-6);
 }
 
@@ -491,8 +475,6 @@
 }
 
 .portal-grid {
-  position: relative;
-  z-index: 1;
   display: grid;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -518,8 +500,7 @@
       rgba(155, 66, 194, 0.2),
       transparent 34%
     ),
-    rgba(18, 13, 20, 0.78);
-  backdrop-filter: blur(0.45rem);
+    #151116;
   color: var(--color-paper-50);
   isolation: isolate;
   text-decoration: none;
@@ -681,11 +662,11 @@
 }
 
 .portal--work {
-  background: rgba(9, 24, 18, 0.75);
+  background: #111914;
 }
 
 .portal--about {
-  background: rgba(26, 16, 27, 0.76);
+  background: #171318;
 }
 
 .portal--contact {
@@ -695,7 +676,7 @@
       rgba(199, 149, 67, 0.18),
       transparent 32%
     ),
-    rgba(14, 8, 17, 0.78);
+    #100c12;
 }
 
 .bench-section {
@@ -841,15 +822,7 @@
 
 .process-section {
   padding-block: var(--space-9);
-  background:
-    radial-gradient(
-      circle at 78% 18%,
-      rgba(79, 14, 112, 0.42),
-      transparent 28%
-    ),
-    linear-gradient(rgba(9, 7, 10, 0.9), rgba(9, 7, 10, 0.98)),
-    url("../../assets/backgrounds/woodland-night-road-v2.jpg") center 68% /
-      cover;
+  background: var(--color-ink-950);
   color: var(--color-paper-50);
 }
 

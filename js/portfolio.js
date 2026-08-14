@@ -12,16 +12,16 @@ export const projects = [
     alt: "Existing circular Woodland Grain maker seal in purple, gold, and dark wood tones",
   },
   {
-    slug: "component-palette",
-    title: "Component Palette",
-    category: "Brand system study",
+    slug: "mountain-line-study",
+    title: "Mountain Line Study",
+    category: "Visual language study",
     description:
-      "The supplied business-card artwork broken into reusable scenes, marks, borders, and service cues.",
+      "One isolated landscape element, separated from the original composition and given room to work on its own.",
     detail:
-      "This is an interface and production study using the actual supplied palette sheet. It shows how one dense piece of brand art can become a calmer, repeatable kit without pretending the pieces are physical products.",
-    signals: ["Supplied artwork", "Asset separation", "Reusable system"],
-    image: "assets/branding/source/5-Photo-5.jpg",
-    alt: "Woodland Grain brand component palette with landscape, service, frame, and ornament elements",
+      "This transparent mountain layer was extracted from supplied Woodland Grain artwork for restrained use in interfaces and motion. The original component sheet is a working source file, not website content.",
+    signals: ["Transparent asset", "Brand continuity", "Layer-ready"],
+    image: "assets/generated/hd/mountain.png",
+    alt: "Isolated purple and gold mountain illustration on a transparent background",
   },
   {
     slug: "layered-landscape",

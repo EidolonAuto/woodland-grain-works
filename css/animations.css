@@ -173,16 +173,16 @@ html::after {
 .is-departing .site-footer {
   pointer-events: none;
   transform-origin: var(--transition-x) var(--transition-y);
-  animation: page-dolly-out 980ms var(--ease-in-out) both;
+  animation: page-dolly-out 560ms var(--ease-in-out) both;
 }
 
 .is-departing .hero__backdrop,
 .is-departing .interior-hero {
-  animation: backdrop-dolly-in 980ms var(--ease-in-out) both;
+  animation: backdrop-dolly-in 560ms var(--ease-in-out) both;
 }
 
 .is-departing::after {
-  animation: transition-aperture-in 980ms var(--ease-in-out) both;
+  animation: transition-aperture-in 560ms var(--ease-in-out) both;
 }
 
 [data-transition-active="true"] {
@@ -194,11 +194,11 @@ html::after {
 .is-arriving .site-header,
 .is-arriving .site-footer {
   transform-origin: var(--transition-x) var(--transition-y);
-  animation: page-dolly-in 900ms var(--ease-out) both;
+  animation: page-dolly-in 720ms var(--ease-out) both;
 }
 
 .is-arriving::after {
-  animation: transition-aperture-out 900ms var(--ease-out) both;
+  animation: transition-aperture-out 720ms var(--ease-out) both;
 }
 
 @keyframes page-dolly-out {
@@ -211,7 +211,7 @@ html::after {
   to {
     opacity: 0.18;
     filter: blur(3px);
-    transform: perspective(80rem) translateZ(-28rem) scale(0.48);
+    transform: perspective(80rem) translateZ(-14rem) scale(0.78);
   }
 }
 
@@ -231,287 +231,13 @@ html::after {
   from {
     opacity: 0;
     filter: blur(5px);
-    transform: perspective(80rem) translateZ(18rem) scale(1.22);
+    transform: perspective(80rem) translateZ(11rem) scale(1.13);
   }
 
   to {
     opacity: 1;
     filter: blur(0);
     transform: perspective(80rem) translateZ(0) scale(1);
-  }
-}
-
-.world-transition {
-  --map-x: 50%;
-  --map-y: 50%;
-
-  position: fixed;
-  z-index: calc(var(--z-cursor) + 20);
-  inset: 0;
-  overflow: hidden;
-  visibility: hidden;
-  background: #08060a;
-  color: var(--color-paper-50);
-  opacity: 0;
-  pointer-events: none;
-}
-
-.world-transition[data-target="home"] {
-  --map-x: 50%;
-  --map-y: 51%;
-}
-
-.world-transition[data-target="services"] {
-  --map-x: 24%;
-  --map-y: 64%;
-}
-
-.world-transition[data-target="work"] {
-  --map-x: 72%;
-  --map-y: 30%;
-}
-
-.world-transition[data-target="about"] {
-  --map-x: 76%;
-  --map-y: 68%;
-}
-
-.world-transition[data-target="contact"] {
-  --map-x: 28%;
-  --map-y: 28%;
-}
-
-.world-transition__landscape {
-  position: absolute;
-  inset: -8%;
-  overflow: hidden;
-  background:
-    linear-gradient(rgba(7, 4, 9, 0.18), rgba(7, 4, 9, 0.82)),
-    url("../assets/backgrounds/woodland-night-road-v2.jpg") center / cover;
-  transform-origin: var(--map-x) var(--map-y);
-}
-
-.world-transition__wash,
-.world-transition__grid,
-.world-transition__route {
-  position: absolute;
-  inset: 0;
-}
-
-.world-transition__wash {
-  background:
-    radial-gradient(
-      circle at var(--map-x) var(--map-y),
-      rgba(155, 66, 194, 0.34),
-      transparent 18%
-    ),
-    radial-gradient(
-      circle at 48% 58%,
-      transparent 0 18%,
-      rgba(7, 5, 9, 0.54) 73%
-    );
-}
-
-.world-transition__grid {
-  background:
-    linear-gradient(rgba(227, 191, 121, 0.075) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(227, 191, 121, 0.075) 1px, transparent 1px);
-  background-size: 4rem 4rem;
-  mask-image: radial-gradient(circle, black, transparent 74%);
-}
-
-.world-transition__route {
-  inset: 24% 21%;
-  border: 1px solid rgba(227, 191, 121, 0.28);
-  border-radius: 48% 42% 54% 38%;
-  rotate: -9deg;
-  box-shadow: 0 0 3rem rgba(79, 14, 112, 0.24);
-}
-
-.world-node {
-  position: absolute;
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 0.55rem;
-  align-items: center;
-  color: rgba(251, 248, 241, 0.62);
-  font-size: 0.56rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-
-.world-node::before {
-  position: absolute;
-  left: 0.7rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  border: 1px solid var(--color-gold-300);
-  background: #100c12;
-  box-shadow: 0 0 0 0.35rem rgba(199, 149, 67, 0.08);
-  content: "";
-  rotate: 45deg;
-}
-
-.world-node i {
-  color: var(--color-gold-300);
-  font-style: normal;
-  transform: translateX(-1.5rem);
-}
-
-.world-node strong {
-  font-weight: 700;
-}
-
-.world-node[data-active] {
-  color: var(--color-paper-50);
-}
-
-.world-node[data-active]::before {
-  background: var(--color-purple-glow);
-  box-shadow:
-    0 0 0 0.55rem rgba(155, 66, 194, 0.16),
-    0 0 2.4rem var(--color-purple-glow);
-  animation: world-node-pulse 700ms var(--ease-in-out) infinite alternate;
-}
-
-.world-node--home {
-  top: 49%;
-  left: 48%;
-}
-
-.world-node--services {
-  top: 63%;
-  left: 23%;
-}
-
-.world-node--work {
-  top: 29%;
-  left: 71%;
-}
-
-.world-node--about {
-  top: 67%;
-  left: 75%;
-}
-
-.world-node--contact {
-  top: 27%;
-  left: 27%;
-}
-
-.world-transition__caption {
-  position: absolute;
-  right: 7%;
-  bottom: 7%;
-  display: grid;
-  min-width: min(24rem, 72vw);
-  gap: 0.55rem;
-  padding: 1rem 1.2rem;
-  border: 1px solid rgba(227, 191, 121, 0.28);
-  background: rgba(10, 7, 11, 0.68);
-  backdrop-filter: blur(0.8rem);
-}
-
-.world-transition__caption span {
-  color: var(--color-gold-300);
-  font-size: 0.55rem;
-  letter-spacing: 0.15em;
-}
-
-.world-transition__caption strong {
-  font-family: var(--font-display);
-  font-size: clamp(1.4rem, 4vw, 2.7rem);
-  font-weight: 400;
-}
-
-.world-transition[data-state="departing"] {
-  visibility: visible;
-  animation: world-overlay-in 980ms var(--ease-in-out) both;
-}
-
-.world-transition[data-state="departing"] .world-transition__landscape {
-  animation: world-map-pullback 980ms var(--ease-in-out) both;
-}
-
-.world-transition[data-state="arriving"] {
-  visibility: visible;
-  animation: world-overlay-out 900ms var(--ease-out) both;
-}
-
-.world-transition[data-state="arriving"] .world-transition__landscape {
-  animation: world-map-pushin 900ms var(--ease-out) both;
-}
-
-@keyframes world-overlay-in {
-  0% {
-    opacity: 0;
-  }
-
-  35%,
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes world-overlay-out {
-  0%,
-  45% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
-  }
-}
-
-@keyframes world-map-pullback {
-  from {
-    filter: blur(6px) brightness(0.72);
-    transform: scale(2.15) translate3d(0, 0, 0);
-  }
-
-  to {
-    filter: blur(0) brightness(1);
-    transform: scale(0.92) translate3d(0, 0, 0);
-  }
-}
-
-@keyframes world-map-pushin {
-  from {
-    filter: blur(0) brightness(1);
-    transform: scale(0.92) translate3d(0, 0, 0);
-  }
-
-  to {
-    filter: blur(6px) brightness(0.72);
-    transform: scale(2.35) translate3d(0, 0, 0);
-  }
-}
-
-@keyframes world-node-pulse {
-  to {
-    transform: scale(1.25) rotate(45deg);
-  }
-}
-
-@media (max-width: 47.99rem) {
-  .world-transition__landscape {
-    inset: -10%;
-  }
-
-  .world-transition__route {
-    inset: 21% 10% 29%;
-  }
-
-  .world-node strong {
-    display: none;
-  }
-
-  .world-transition__caption {
-    right: 1rem;
-    bottom: max(1rem, env(safe-area-inset-bottom));
-    left: 1rem;
-    min-width: 0;
   }
 }
 
@@ -568,10 +294,6 @@ html::after {
   }
 
   html::after {
-    display: none;
-  }
-
-  .world-transition {
     display: none;
   }
 }
