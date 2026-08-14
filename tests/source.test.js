@@ -80,6 +80,11 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   );
   assert.match(home, /perspective:\s*72rem/);
   assert.match(internal, /clip-path:\s*inset\(0 0 100% 0\)/);
+  const spatial = await read("js/spatial-3d.js");
+  assert.match(spatial, /three\.module\.min\.js/);
+  assert.match(spatial, /document\.hidden/);
+  assert.match(spatial, /prefers-reduced-motion/);
+  await access(new URL("../js/vendor/THREE-LICENSE.txt", import.meta.url));
 });
 
 test("supplied brand art is integrated without the unrelated image", async () => {
@@ -112,9 +117,12 @@ test("portfolio studies are honest, linked, and keyboard accessible", async () =
   assert.match(script, /href="portfolio\.html#\$\{project\.slug\}"/);
 });
 
-test("inquiry form cannot imply a fake successful submission", async () => {
+test("project note builder is useful without implying network submission", async () => {
   const html = await read("contact.html");
-  assert.match(html, /data-inquiry-form/);
-  assert.match(html, /<button[\s\S]*?type="submit"[\s\S]*?disabled[\s\S]*?>/);
-  assert.match(html, /secure\s+endpoint/);
+  const script = await read("js/project-note.js");
+  assert.match(html, /data-project-note/);
+  assert.match(html, /Nothing is sent or stored by this page/);
+  assert.doesNotMatch(html, /action=/);
+  assert.match(script, /navigator\.clipboard/);
+  assert.doesNotMatch(script, /fetch\(|XMLHttpRequest/);
 });

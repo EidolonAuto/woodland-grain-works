@@ -21,13 +21,13 @@ Reusable values live in `css/tokens.css`. Local one-off dimensions are acceptabl
 - A scan line connects precision light to the material mark.
 - Dust particles imply a working environment without becoming smoke or spectacle.
 - Portal artwork responds gently to fine-pointer movement; content and destinations remain fully visible on touch.
-- Service diagrams and section reveals are slow and controlled.
+- Section reveals are slow and controlled; procedural objects respond with damped rotation rather than novelty motion.
 
 Reduced-motion mode removes continuous scanning and Canvas ambience, resolves drawn paths immediately, and reveals all content without translation.
 
 Motion follows a staged editorial system: a short layered entrance establishes hierarchy, content reveals once with directional depth, and technical linework draws only when it becomes relevant. Fine-pointer responses use damped interpolation rather than snapping; ambient movement stays subordinate to reading.
 
-The homepage uses a reusable `spatial-render` template rather than a WebGL dependency. High-resolution transparent product renders occupy the foreground while a shadow, violet halo, and glass-light plane move at different pointer and scroll depths. Portal renders reuse the same template with lazy loading, fixed dimensions, touch-safe layouts, and a fully static reduced-motion fallback.
+The visual system has two spatial layers. High-resolution transparent product renders give portal artwork a stable, art-directed composition. A pinned Three.js module renders procedural brass, wood, crystal, signal paths, and orbiting points in selected hero and workbench stages. The live layer crossfades over the same raster fallback only after WebGL initializes. It pauses off-screen and in hidden tabs, caps pixel density, uses lower density on phones, and renders without continuous motion when reduced motion is requested.
 
 ## Supplied brand artwork
 

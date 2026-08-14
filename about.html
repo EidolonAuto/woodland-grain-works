@@ -79,7 +79,7 @@
           <a href="services.html">Services</a><a href="portfolio.html">Work</a
           ><a href="about.html" aria-current="page">About</a
           ><a class="nav-cta" href="contact.html"
-            >Enter with an idea <span aria-hidden="true">↗</span></a
+            >Start a project <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
@@ -88,36 +88,32 @@
       <section class="interior-hero" aria-labelledby="page-title">
         <div class="shell interior-hero__layout">
           <div>
-            <p class="eyebrow"><span></span>Behind the work</p>
-            <h1 id="page-title">Curiosity is part of the toolset.</h1>
+            <p class="eyebrow">
+              <span></span>Why this workshop is broad on purpose
+            </p>
+            <h1 id="page-title">
+              Curiosity is useful when it stays practical.
+            </h1>
             <p class="interior-hero__lede">
-              Woodland Grain Works exists for the overlap: natural material and
-              exact geometry, handwork and automation, beauty and practical
-              function.
+              Woodland Grain Works is built for the overlap: natural material
+              and exact geometry, handwork and automation, good looks and the
+              unglamorous details that make something work.
             </p>
           </div>
           <div
-            class="interior-hero__art interior-hero__art--seal"
+            class="interior-hero__art interior-hero__art--seal spatial-stage"
+            data-spatial-scene="forest"
             aria-hidden="true"
           >
             <img
-              class="maker-seal"
+              class="maker-seal spatial-render__fallback"
               src="assets/branding/legacy/maker-seal.png"
               alt=""
               width="1024"
               height="1024"
               decoding="async"
             />
-            <img class="seal-gem" src="assets/generated/hd/gem.png" alt="" />
-            <svg viewBox="0 0 600 500">
-              <path
-                d="m64 438 86-216 86 216m-30 0L320 108l114 330m-47 0 76-190 76 190"
-              />
-              <path
-                class="art-accent"
-                d="M30 411h540M70 397v28m65-18v18m65-28v28m65-18v18m65-28v28m65-18v18m65-28v28"
-              />
-            </svg>
+            <canvas class="spatial-render__canvas"></canvas>
           </div>
         </div>
       </section>

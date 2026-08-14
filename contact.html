@@ -76,7 +76,7 @@
           <a href="services.html">Services</a><a href="portfolio.html">Work</a
           ><a href="about.html">About</a
           ><a class="nav-cta" href="contact.html" aria-current="page"
-            >Enter with an idea <span aria-hidden="true">↗</span></a
+            >Start a project <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
@@ -85,32 +85,39 @@
       <section class="interior-hero" aria-labelledby="page-title">
         <div class="shell interior-hero__layout">
           <div>
-            <p class="eyebrow"><span></span>Open channel</p>
-            <h1 id="page-title">Start with the strange part.</h1>
+            <p class="eyebrow"><span></span>Project note builder</p>
+            <h1 id="page-title">Start messy. Get the useful parts down.</h1>
             <p class="interior-hero__lede">
-              A useful inquiry does not need polished specifications. It needs
-              the problem, the intended outcome, and whatever constraints are
-              already known.
+              You do not need a polished brief. A rough goal, the thing it has
+              to fit, and the part you are unsure about will do.
             </p>
           </div>
-          <div class="interior-hero__art" aria-hidden="true">
-            <svg viewBox="0 0 600 500">
-              <path d="M25 265h95l43-109 78 233 69-181 51 57h214" />
-              <circle class="art-accent" cx="575" cy="265" r="8" />
-              <circle cx="120" cy="265" r="5" />
-            </svg>
+          <div
+            class="interior-hero__art spatial-stage"
+            data-spatial-scene="signal"
+            aria-hidden="true"
+          >
+            <img
+              class="spatial-render__fallback"
+              src="assets/generated/3d/signal-orb.png"
+              alt=""
+              width="1214"
+              height="1295"
+              decoding="async"
+            />
+            <canvas class="spatial-render__canvas"></canvas>
           </div>
         </div>
       </section>
       <section class="contact-console interior-section">
         <div class="shell contact-console__layout">
           <div class="contact-console__intro reveal">
-            <p class="eyebrow"><span></span>Prepare the signal</p>
-            <h2>What helps define an idea?</h2>
+            <p class="eyebrow"><span></span>Make yourself a starting point</p>
+            <h2>What is worth writing down?</h2>
             <p>
-              The final contact channel and business details have not been
-              published yet. This preview shows the information a future secure
-              inquiry will request without pretending to submit anything.
+              This tool turns your answers into a plain-text project note. It
+              does not upload, send, or save anything. Copy the result and keep
+              it ready for the contact channel when it is published.
             </p>
             <ol class="contact-routes">
               <li>
@@ -134,7 +141,7 @@
           </div>
           <form
             class="inquiry-form reveal"
-            data-inquiry-form
+            data-project-note
             aria-describedby="form-status"
           >
             <div class="form-row">
@@ -142,19 +149,14 @@
                 >Name<input
                   type="text"
                   name="name"
-                  autocomplete="name"
-                  disabled /></label
+                  autocomplete="name" /></label
               ><label
-                >Email<input
-                  type="email"
-                  name="email"
-                  autocomplete="email"
-                  disabled
+                >Email<input type="email" name="email" autocomplete="email"
               /></label>
             </div>
             <label
-              >Project direction<select name="category" disabled>
-                <option>Choose a direction</option>
+              >Project direction<select name="category" required>
+                <option value="">Choose a direction</option>
                 <option>Engraving</option>
                 <option>Woodworking / fabrication</option>
                 <option>Automotive audio / electrical</option>
@@ -163,21 +165,63 @@
                 <option>Something else</option>
               </select></label
             ><label
-              >What are you imagining?<textarea
-                name="description"
+              >What are you trying to make or solve?<textarea
+                name="details"
                 rows="5"
-                disabled
+                required
+                placeholder="The rough version is fine."
               ></textarea>
             </label>
+            <div class="form-row">
+              <label
+                >Size / quantity<input
+                  name="scale"
+                  type="text"
+                  placeholder="If known"
+              /></label>
+              <label
+                >Material thoughts<input
+                  name="material"
+                  type="text"
+                  placeholder="Or: open to suggestions"
+              /></label>
+            </div>
+            <div class="form-row">
+              <label
+                >Timing<input
+                  name="timing"
+                  type="text"
+                  placeholder="Flexible is a valid answer"
+              /></label>
+              <label
+                >Budget notes<input
+                  name="budget"
+                  type="text"
+                  placeholder="Optional"
+              /></label>
+            </div>
+            <textarea
+              class="note-preview"
+              data-note-preview
+              hidden
+              readonly
+              aria-label="Project note preview"
+            ></textarea>
             <div class="form-footer">
-              <p id="form-status">
-                Preview only. Submission remains disabled until a secure
-                endpoint, privacy handling, and real contact details are
-                configured.
+              <p
+                id="form-status"
+                data-note-status
+                data-state="idle"
+                aria-live="polite"
+              >
+                Nothing is sent or stored by this page.
               </p>
-              <button class="button button--disabled" type="submit" disabled>
-                Channel not yet open
-              </button>
+              <div class="form-actions">
+                <button class="button button--primary" type="submit">
+                  Copy project note
+                </button>
+                <button class="button button--quiet" type="reset">Clear</button>
+              </div>
             </div>
           </form>
         </div>

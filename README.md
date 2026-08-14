@@ -1,6 +1,6 @@
 # Woodland Grain Works
 
-Woodland Grain Works V1 is a custom static web experience built with semantic HTML, modular CSS, modern vanilla JavaScript, SVG, and a small optional Canvas enhancement. It has no CMS, database, framework, runtime backend, or production dependency bundle.
+Woodland Grain Works V1 is a custom static web experience built with semantic HTML, modular CSS, modern vanilla JavaScript, Canvas, and a small self-hosted Three.js module for procedural 3D. It has no CMS, database, framework, runtime backend, or build step.
 
 The homepage acts as an animated workshop hub. Dedicated Services, Work, About, and Contact pages provide quieter, focused destinations.
 
@@ -34,7 +34,7 @@ All public paths are relative, so the site works from a project subpath. Product
 
 ## Deferred launch work
 
-The inquiry form is intentionally disabled. Connect a secure form or serverless endpoint, add abuse protection and privacy handling, then enable it. Real business email, phone, address, hours, and service-area details are pending; the site does not invent them.
+The contact page builds a project note locally and copies it to the visitor's clipboard. It does not submit or store data. Connect a secure form or serverless endpoint, add abuse protection and privacy handling, then add an actual send action. Real business email, phone, address, hours, and service-area details are pending; the site does not invent them.
 
 Project artwork is explicitly labeled as concept studies. Replace or supplement it with licensed, optimized AVIF/WebP photography as genuine project documentation becomes available. See [docs/DESIGN.md](docs/DESIGN.md) for art direction.
 
@@ -43,8 +43,12 @@ Project artwork is explicitly labeled as concept studies. Replace or supplement 
 - `index.html` — animated workshop hub and progressive-enhancement baseline
 - `services.html`, `portfolio.html`, `about.html`, `contact.html` — dedicated destinations
 - `css/` — reset, tokens, components, shared animation, hub, and interior page composition
-- `js/` — navigation, centralized motion, ambient particles, and data-driven portfolio
+- `js/` — navigation, centralized motion, local project-note tooling, ambient particles, procedural 3D, and data-driven portfolio
 - `assets/` — original editable SVG branding and illustrations
 - `assets/generated/` — transparent UI accents and service medallions extracted from supplied brand palettes
 - `tools/extract-brand-assets.ps1` — reproducible palette-sheet extraction workflow
 - `docs/` — architecture, design rationale, deployment, and roadmap
+
+## Third-party runtime
+
+`js/vendor/three.module.min.js` is Three.js r184, pinned and self-hosted so the deployed site does not depend on a CDN. Its MIT license is included at `js/vendor/THREE-LICENSE.txt`. The 3D layer is decorative progressive enhancement: scenes pause outside the viewport or in hidden tabs, cap pixel density, render a still frame for reduced motion, and leave high-resolution raster fallbacks in the markup.

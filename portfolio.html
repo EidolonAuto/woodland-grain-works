@@ -77,7 +77,7 @@
           ><a href="portfolio.html" aria-current="page">Work</a
           ><a href="about.html">About</a
           ><a class="nav-cta" href="contact.html"
-            >Enter with an idea <span aria-hidden="true">↗</span></a
+            >Start a project <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
@@ -86,20 +86,31 @@
       <section class="interior-hero" aria-labelledby="page-title">
         <div class="shell interior-hero__layout">
           <div>
-            <p class="eyebrow"><span></span>Project room</p>
-            <h1 id="page-title">Ideas, made visible.</h1>
+            <p class="eyebrow">
+              <span></span>Studies, not pretend case studies
+            </p>
+            <h1 id="page-title">
+              A visual notebook for work still taking shape.
+            </h1>
             <p class="interior-hero__lede">
-              A growing set of visual studies for the kind of multidisciplinary
-              work this workshop is built to pursue.
+              These are experiments in material, signal, and atmosphere. Real
+              project documentation belongs here when it is ready.
             </p>
           </div>
-          <div class="interior-hero__art" aria-hidden="true">
-            <svg viewBox="0 0 600 500">
-              <path
-                d="M70 358c60-186 139-279 237-279s177 93 237 279M111 358c47-135 112-203 196-203s149 68 196 203M158 358c35-81 85-122 149-122s114 41 149 122"
-              />
-              <path class="art-accent" d="M40 328h141l68-68h104l95-95h112" />
-            </svg>
+          <div
+            class="interior-hero__art spatial-stage"
+            data-spatial-scene="forest"
+            aria-hidden="true"
+          >
+            <img
+              class="spatial-render__fallback"
+              src="assets/generated/3d/forest-model.png"
+              alt=""
+              width="1536"
+              height="1024"
+              decoding="async"
+            />
+            <canvas class="spatial-render__canvas"></canvas>
           </div>
         </div>
       </section>

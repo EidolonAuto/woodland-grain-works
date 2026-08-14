@@ -1,39 +1,39 @@
 export const projects = [
   {
     slug: "signal-grain",
-    title: "Signal / Grain Study",
+    title: "Grain / Signal",
     category: "Material + electronics",
     description:
-      "A visual study exploring the shared rhythm of natural grain and clean signal paths.",
+      "A material study built around one question: can a circuit feel grown rather than printed?",
     detail:
-      "This concept asks what happens when organic growth rings and routed signal paths share the same visual language. It is an art-direction study, not customer work.",
+      "Growth rings, routed traces, and a faceted center are being tested as one object language. This is direction-setting artwork, not customer work.",
     signals: ["Layered linework", "Material contrast", "Signal geometry"],
-    image: "assets/illustrations/project-signal-grain.svg",
-    alt: "Abstract wood rings crossed by purple and gold circuit traces",
+    image: "assets/generated/3d/precision-relic.png",
+    alt: "Concept render of a dark wood and brass circular object with a purple faceted center",
   },
   {
     slug: "engraved-geometry",
-    title: "Engraved Geometry",
+    title: "Engraving Rig",
     category: "Laser + graphic design",
     description:
-      "Fine vector linework translated into a warm, material-focused engraving composition.",
+      "A compact visual study for the point where digital linework becomes a mark in real material.",
     detail:
-      "A study in repeatable vector geometry, registration marks, and warm surface treatment—built to establish how future engraving work can be documented.",
+      "The frame, beam, and sample block exaggerate the working parts on purpose. It is a way to test how process can be shown without turning the shop into a diagram.",
     signals: ["Vector paths", "Engraving study", "Surface composition"],
-    image: "assets/illustrations/project-engraved-geometry.svg",
-    alt: "Geometric golden line engraving over a dark timber-inspired field",
+    image: "assets/generated/3d/laser-fabrication.png",
+    alt: "Concept render of a brass and purple engraving mechanism over a wood sample",
   },
   {
     slug: "cabin-network",
-    title: "Cabin Network Study",
+    title: "Quiet Network",
     category: "Smart-home integration",
     description:
-      "A calm connected-space concept where automation stays quietly in the background.",
+      "A connected-space study where the technology stays useful and mostly out of sight.",
     detail:
-      "A spatial systems concept connecting forest atmosphere, residential form, and unobtrusive device relationships without turning the technology into the subject.",
+      "The small house is the point; the network is support. This explores how to show connected devices without making a home look like a control room.",
     signals: ["Network planning", "Spatial integration", "Quiet technology"],
-    image: "assets/illustrations/project-cabin-network.svg",
-    alt: "Forest cabin silhouette with subtle connected device nodes",
+    image: "assets/generated/3d/forest-model.png",
+    alt: "Concept render of a small dark house in a sculpted forest with subtle illuminated paths",
   },
 ];
 

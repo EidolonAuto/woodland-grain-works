@@ -93,7 +93,7 @@
           <a href="services.html">Services</a><a href="portfolio.html">Work</a
           ><a href="about.html">About</a>
           <a class="nav-cta" href="contact.html"
-            >Enter with an idea <span aria-hidden="true">↗</span></a
+            >Start a project <span aria-hidden="true">↗</span></a
           >
         </nav>
       </div>
@@ -119,26 +119,29 @@
         <div class="hero__grid" aria-hidden="true"></div>
         <div class="shell hero__layout">
           <div class="hero__copy" data-hero-copy>
-            <p class="eyebrow"><span></span>Workshop signal / online</p>
+            <p class="eyebrow"><span></span>Custom work / useful oddities</p>
             <h1 id="hero-title">
-              <span>Follow the grain.</span
-              ><span class="hero__title-accent">Find the current.</span>
+              <span>Bring the odd idea.</span
+              ><span class="hero__title-accent">We’ll find its shape.</span>
             </h1>
             <p class="hero__lede">
-              A workshop for objects, systems, marks, sound, and the strange
-              ideas that live between categories.
+              Wood, acrylic, wire, speakers, sensors, graphics—if the job needs
+              more than one kind of thinking, it probably belongs here.
             </p>
             <a class="hub-enter" href="#workshop-doors"
-              ><span>Choose a door</span><i aria-hidden="true"></i
+              ><span>Look around the workshop</span><i aria-hidden="true"></i
             ></a>
           </div>
           <div class="hero-visual" data-hero-visual aria-hidden="true">
             <div class="hero-visual__glow"></div>
-            <div class="hero-visual__stage spatial-render spatial-render--hero">
+            <div
+              class="hero-visual__stage spatial-render spatial-render--hero"
+              data-spatial-scene="grain"
+            >
               <div class="artifact-shadow"></div>
               <div class="spatial-render__halo"></div>
               <img
-                class="spatial-render__image"
+                class="spatial-render__image spatial-render__fallback"
                 src="assets/generated/3d/precision-relic.png"
                 alt=""
                 width="1536"
@@ -146,13 +149,14 @@
                 fetchpriority="high"
                 decoding="async"
               />
+              <canvas class="spatial-render__canvas"></canvas>
               <div class="spatial-render__glass" aria-hidden="true"></div>
             </div>
             <div class="hero-visual__label hero-visual__label--top">
-              WG / HUB
+              live material study
             </div>
             <div class="hero-visual__label hero-visual__label--bottom">
-              four paths / one workshop
+              grain / current / form
             </div>
           </div>
         </div>
@@ -164,8 +168,8 @@
         aria-labelledby="doors-title"
       >
         <div class="shell doors-heading reveal">
-          <p class="eyebrow"><span></span>Where do you want to go?</p>
-          <h2 id="doors-title">The workshop has more than one entrance.</h2>
+          <p class="eyebrow"><span></span>Pick a starting point</p>
+          <h2 id="doors-title">What are you here to make?</h2>
           <div class="doors-heading__divider" aria-hidden="true">
             <span></span>
           </div>
@@ -178,10 +182,10 @@
           >
             <span class="portal__number">01 / Capabilities</span>
             <div class="portal__copy">
-              <p>What can take shape here?</p>
+              <p>See the tools and materials</p>
               <h3>Services</h3>
             </div>
-            <span class="portal__action">Open the tool wall ↗</span>
+            <span class="portal__action">Browse capabilities ↗</span>
             <div class="portal__render spatial-render" aria-hidden="true">
               <img
                 class="spatial-render__image"
@@ -202,10 +206,10 @@
           >
             <span class="portal__number">02 / Studies</span>
             <div class="portal__copy">
-              <p>See the ideas become visible.</p>
+              <p>See the visual direction</p>
               <h3>Selected work</h3>
             </div>
-            <span class="portal__action">Enter the project room ↗</span>
+            <span class="portal__action">View concept studies ↗</span>
             <div class="portal__render spatial-render" aria-hidden="true">
               <img
                 class="spatial-render__image"
@@ -220,12 +224,12 @@
             </div>
           </a>
           <a class="portal portal--about reveal" href="about.html" data-portal>
-            <span class="portal__number">03 / Philosophy</span>
+            <span class="portal__number">03 / The approach</span>
             <div class="portal__copy">
-              <p>Why grain and circuitry belong together.</p>
+              <p>Why the mix is intentional</p>
               <h3>About the workshop</h3>
             </div>
-            <span class="portal__action">Walk behind the work ↗</span>
+            <span class="portal__action">Meet the workshop ↗</span>
             <div class="portal__render spatial-render" aria-hidden="true">
               <img
                 class="spatial-render__image"
@@ -246,10 +250,10 @@
           >
             <span class="portal__number">04 / Unknowns welcome</span>
             <div class="portal__copy">
-              <p>Start with the question, not the category.</p>
+              <p>Turn a rough thought into a useful note</p>
               <h3>Bring an idea</h3>
             </div>
-            <span class="portal__action">Send a signal ↗</span>
+            <span class="portal__action">Build a project note ↗</span>
             <div class="portal__render spatial-render" aria-hidden="true">
               <img
                 class="spatial-render__image"
@@ -263,6 +267,114 @@
               <span class="spatial-render__halo"></span>
             </div>
           </a>
+        </div>
+      </section>
+
+      <section class="bench-section" aria-labelledby="bench-title">
+        <div class="shell bench-layout">
+          <div class="bench-copy reveal">
+            <p class="eyebrow"><span></span>What lands on the bench</p>
+            <h2 id="bench-title">Not everything needs a neat category.</h2>
+            <p>
+              Some jobs are one clean engraving. Others need a fabricated part,
+              a wiring plan, a graphic, and a little head-scratching. The useful
+              question is not “which department?” It is “what does this need to
+              do?”
+            </p>
+            <a class="text-link" href="services.html"
+              >See what the shop can handle ↗</a
+            >
+          </div>
+          <div
+            class="bench-object reveal"
+            data-spatial-scene="forest"
+            aria-hidden="true"
+          >
+            <img
+              class="spatial-render__fallback"
+              src="assets/generated/3d/forest-model.png"
+              alt=""
+              width="1536"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+            />
+            <canvas class="spatial-render__canvas"></canvas>
+            <span class="bench-object__label">rotate / inspect / imagine</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="process-section" aria-labelledby="process-title">
+        <div class="shell process-heading reveal">
+          <p class="eyebrow"><span></span>From loose thought to real thing</p>
+          <h2 id="process-title">A practical way through the unknowns.</h2>
+        </div>
+        <ol class="process-rail">
+          <li class="reveal">
+            <span>01</span>
+            <h3>Show the rough idea</h3>
+            <p>
+              A sketch, photo, voice-note summary, or “this part, but different”
+              is enough to begin.
+            </p>
+          </li>
+          <li class="reveal">
+            <span>02</span>
+            <h3>Find the constraints</h3>
+            <p>
+              Size, material, power, placement, budget, and the parts that
+              absolutely cannot be annoying.
+            </p>
+          </li>
+          <li class="reveal">
+            <span>03</span>
+            <h3>Choose a build path</h3>
+            <p>
+              We narrow the tools and decisions before adding detail for
+              detail’s sake.
+            </p>
+          </li>
+          <li class="reveal">
+            <span>04</span>
+            <h3>Make it understandable</h3>
+            <p>
+              The result should work, look intentional, and make sense when you
+              use it.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="fit-section">
+        <div class="shell fit-layout">
+          <div class="fit-title reveal">
+            <p class="eyebrow"><span></span>A quick gut check</p>
+            <h2>
+              Good projects start with a real problem and some room to explore.
+            </h2>
+          </div>
+          <div class="fit-notes reveal">
+            <article>
+              <h3>Probably a good fit</h3>
+              <p>
+                You care how it works and how it feels. The answer may cross
+                materials or disciplines. You are open to figuring out the right
+                version together.
+              </p>
+            </article>
+            <article>
+              <h3>Worth talking through first</h3>
+              <p>
+                The deadline is immovable, the design is not settled, or the
+                request depends on equipment, certification, or production
+                volume not yet discussed.
+              </p>
+            </article>
+            <a class="button button--primary" href="contact.html"
+              >Make a project note <span aria-hidden="true">↗</span></a
+            >
+          </div>
         </div>
       </section>
 
@@ -285,7 +397,7 @@
           ></a
         >
         <p>Natural grain meets engineered precision.</p>
-        <a class="footer__top-link" href="#top">Return to the signal ↑</a>
+        <a class="footer__top-link" href="#top">Back to the top ↑</a>
       </div>
       <div class="shell footer__bottom">
         <p>© <span data-current-year></span> Woodland Grain Industries LLC</p>
