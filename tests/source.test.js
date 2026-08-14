@@ -92,13 +92,14 @@ test("supplied brand art is integrated without the unrelated image", async () =>
   const services = await read("services.html");
   const portfolio = await read("js/portfolio.js");
   const designNotes = await read("assets/generated/README.md");
-  assert.match(homepage, /woodland-night-road-v2\.jpg/);
+  assert.match(homepage, /woodland-night-road-source\.jpg/);
   assert.match(homepage, /doors-heading__divider/);
   assert.doesNotMatch(homepage, /assets\/generated\/hd\/divider\.png/);
   assert.match(services, /capability__readout/);
   assert.doesNotMatch(services, /service-(?:laser|automotive|smart-home)\.png/);
   assert.doesNotMatch(`${homepage}${services}`, /\b(?:fire|angel|wing)\b/i);
   assert.doesNotMatch(portfolio, /assets\/branding\/source\//);
+  assert.doesNotMatch(`${homepage}${portfolio}`, /woodland-night-road-v2\.jpg/);
   assert.match(
     designNotes,
     /unrelated fire-wing image[\s\S]*not stored or referenced/i,

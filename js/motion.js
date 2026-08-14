@@ -56,10 +56,10 @@ export function initHeroResponse() {
   const render = () => {
     state.x = approach(state.x, state.targetX, 0.11);
     state.y = approach(state.y, state.targetY, 0.11);
-    hero.style.setProperty("--hero-x", `${state.x * -10}px`);
-    hero.style.setProperty("--hero-y", `${state.y * -7}px`);
-    visual.style.setProperty("--hero-visual-x", `${state.x * 13}px`);
-    visual.style.setProperty("--hero-visual-y", `${state.y * 10}px`);
+    hero.style.setProperty("--hero-x", `${state.x * -18}px`);
+    hero.style.setProperty("--hero-y", `${state.y * -12}px`);
+    visual.style.setProperty("--hero-visual-x", `${state.x * 20}px`);
+    visual.style.setProperty("--hero-visual-y", `${state.y * 15}px`);
     visual.style.setProperty("--hero-rotate-x", `${state.y * -1.5}deg`);
     visual.style.setProperty("--hero-rotate-y", `${state.x * 1.5}deg`);
     visual.style.setProperty("--artifact-far-x", `${state.x * -9}px`);
@@ -238,11 +238,11 @@ export function initDepthScenes() {
 
       layers.forEach((layer) => {
         const depth = Number(layer.dataset.depth) || 1;
-        layer.style.setProperty("--layer-x", `${state.x * depth * 13}px`);
-        layer.style.setProperty("--layer-y", `${state.y * depth * 9}px`);
+        layer.style.setProperty("--layer-x", `${state.x * depth * 23}px`);
+        layer.style.setProperty("--layer-y", `${state.y * depth * 16}px`);
         layer.style.setProperty(
           "--layer-scroll",
-          `${scrollPosition * depth * -18}px`,
+          `${scrollPosition * depth * -35}px`,
         );
       });
 

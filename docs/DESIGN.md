@@ -27,7 +27,7 @@ Reduced-motion mode removes continuous scanning and Canvas ambience, resolves dr
 
 Motion follows a staged editorial system: a short layered entrance establishes hierarchy, content reveals once with directional depth, and technical linework draws only when it becomes relevant. Fine-pointer responses use damped interpolation rather than snapping; ambient movement stays subordinate to reading.
 
-The site treats every page as part of one dimensional canvas. Supplied moon, mountain, forest, path, material, and interface elements sit on separate depth planes. Pointer movement shifts nearby planes farther than distant ones; scroll introduces a second, quieter axis of movement. Same-origin page changes use a short pull-back and push-in transition centered on the selected link, suggesting a camera moving to another area of the same workshop. Nothing in the depth system is presented as a fabricated product or completed technical installation.
+The site treats every page as part of one dimensional canvas. The supplied square woodland-road image is the environmental backdrop; palette sheets remain working source files only. Isolated mountain, forest, and interface elements sit on separate depth planes above that backdrop. Pointer and scroll movement shift nearby planes farther than distant ones. Same-origin page changes use an inverse two-plane pull-back and push-in transition centered on the selected link, suggesting a camera moving to another area of the same workshop without introducing a second scene or map. Nothing in the depth system is presented as a fabricated product or completed technical installation.
 
 ## Supplied brand artwork
 

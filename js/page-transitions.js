@@ -52,10 +52,9 @@ export function initPageTransitions() {
       `${arrival.y}%`,
     );
     document.documentElement.classList.add("is-arriving");
-    requestAnimationFrame(() =>
-      requestAnimationFrame(() =>
-        document.documentElement.classList.remove("is-arriving"),
-      ),
+    window.setTimeout(
+      () => document.documentElement.classList.remove("is-arriving"),
+      900,
     );
   }
 
@@ -85,7 +84,7 @@ export function initPageTransitions() {
 
     window.setTimeout(() => {
       window.location.assign(destination.href);
-    }, 560);
+    }, 780);
   });
 
   window.addEventListener("pageshow", () => {

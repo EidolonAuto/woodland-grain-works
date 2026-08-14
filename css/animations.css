@@ -152,6 +152,24 @@ html {
   --transition-y: 50%;
 }
 
+html::before {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(8, 5, 10, 0.18), rgba(8, 5, 10, 0.48)),
+    url("../assets/backgrounds/woodland-night-road-source.jpg") center / cover;
+  content: "";
+  opacity: 0;
+  transform: scale(0.86);
+}
+
+body {
+  position: relative;
+  z-index: 1;
+}
+
 html::after {
   position: fixed;
   z-index: calc(var(--z-header) + 10);
@@ -173,16 +191,26 @@ html::after {
 .is-departing .site-footer {
   pointer-events: none;
   transform-origin: var(--transition-x) var(--transition-y);
-  animation: page-dolly-out 560ms var(--ease-in-out) both;
+  animation: page-dolly-out 780ms var(--ease-in-out) both;
+}
+
+.is-departing body,
+.is-arriving body {
+  overflow: hidden;
+  background: transparent;
+}
+
+.is-departing::before {
+  animation: environment-dolly-in 780ms var(--ease-in-out) both;
 }
 
 .is-departing .hero__backdrop,
 .is-departing .interior-hero {
-  animation: backdrop-dolly-in 560ms var(--ease-in-out) both;
+  animation: backdrop-dolly-in 780ms var(--ease-in-out) both;
 }
 
 .is-departing::after {
-  animation: transition-aperture-in 560ms var(--ease-in-out) both;
+  animation: transition-aperture-in 780ms var(--ease-in-out) both;
 }
 
 [data-transition-active="true"] {
@@ -194,11 +222,20 @@ html::after {
 .is-arriving .site-header,
 .is-arriving .site-footer {
   transform-origin: var(--transition-x) var(--transition-y);
-  animation: page-dolly-in 720ms var(--ease-out) both;
+  animation: page-dolly-in 900ms var(--ease-out) both;
+}
+
+.is-arriving::before {
+  animation: environment-dolly-out 900ms var(--ease-out) both;
+}
+
+.is-arriving .hero__backdrop,
+.is-arriving .interior-hero {
+  animation: backdrop-dolly-out 900ms var(--ease-out) both;
 }
 
 .is-arriving::after {
-  animation: transition-aperture-out 720ms var(--ease-out) both;
+  animation: transition-aperture-out 900ms var(--ease-out) both;
 }
 
 @keyframes page-dolly-out {
@@ -209,9 +246,37 @@ html::after {
   }
 
   to {
-    opacity: 0.18;
-    filter: blur(3px);
-    transform: perspective(80rem) translateZ(-14rem) scale(0.78);
+    opacity: 0.12;
+    filter: blur(4px);
+    transform: perspective(80rem) translateZ(-19rem) scale(0.69);
+  }
+}
+
+@keyframes environment-dolly-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+
+  28% {
+    opacity: 0.72;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes environment-dolly-out {
+  from {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.2);
   }
 }
 
@@ -222,16 +287,26 @@ html::after {
   }
 
   to {
-    background-size: 112% 112%;
-    transform: scale(1.08);
+    background-size: 118% 118%;
+    transform: scale(1.18);
+  }
+}
+
+@keyframes backdrop-dolly-out {
+  from {
+    transform: scale(0.86);
+  }
+
+  to {
+    transform: scale(1);
   }
 }
 
 @keyframes page-dolly-in {
   from {
     opacity: 0;
-    filter: blur(5px);
-    transform: perspective(80rem) translateZ(11rem) scale(1.13);
+    filter: blur(6px);
+    transform: perspective(80rem) translateZ(17rem) scale(1.22);
   }
 
   to {
@@ -293,6 +368,7 @@ html::after {
     display: none;
   }
 
+  html::before,
   html::after {
     display: none;
   }

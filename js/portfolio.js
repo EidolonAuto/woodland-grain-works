@@ -32,7 +32,7 @@ export const projects = [
     detail:
       "The moon, mountain, forest, and path move as separate planes. This is a website composition study—not an example of fabricated work or a claim about a completed installation.",
     signals: ["Parallax depth", "Responsive composition", "Supplied palette"],
-    image: "assets/backgrounds/woodland-night-road-v2.jpg",
+    image: "assets/backgrounds/woodland-night-road-source.jpg",
     alt: "Purple and gold woodland night landscape used as the website art-direction foundation",
   },
 ];

@@ -46,11 +46,11 @@
   background:
     linear-gradient(
       90deg,
-      rgba(9, 7, 11, 0.96) 0%,
-      rgba(9, 7, 11, 0.72) 39%,
-      rgba(9, 7, 11, 0.12) 74%
+      rgba(9, 7, 11, 0.84) 0%,
+      rgba(9, 7, 11, 0.58) 39%,
+      rgba(9, 7, 11, 0.06) 74%
     ),
-    linear-gradient(0deg, rgba(7, 10, 9, 0.7), transparent 55%);
+    linear-gradient(0deg, rgba(7, 10, 9, 0.58), transparent 55%);
   content: "";
 }
 
@@ -59,13 +59,14 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+  filter: saturate(1.08) contrast(1.04);
   transform: translate3d(
       var(--hero-x),
-      calc(var(--hero-y) + var(--hero-scroll) * 1.75rem),
+      calc(var(--hero-y) + var(--hero-scroll) * 3.25rem),
       0
     )
-    scale(calc(1.055 + var(--hero-scroll) * 0.025));
-  transition: transform 1.2s var(--ease-out);
+    scale(calc(1.09 + var(--hero-scroll) * 0.06));
+  transition: transform 180ms linear;
 }
 
 .hero__particles,
