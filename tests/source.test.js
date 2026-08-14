@@ -40,7 +40,7 @@ test("public page local asset and page references resolve", async () => {
         .filter((reference) => !/^(?:https?:|mailto:)/.test(reference));
       await Promise.all(
         references.map((reference) =>
-          access(new URL(`../${reference}`, import.meta.url)),
+          access(new URL(`../${reference.split("?")[0]}`, import.meta.url)),
         ),
       );
     }),

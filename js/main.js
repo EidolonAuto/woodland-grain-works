@@ -7,11 +7,11 @@ import {
   initPortalResponse,
   initReveals,
   initScrollMotion,
-} from "./motion.js";
+} from "./motion.js?v=20260813-3";
 import { initParticles } from "./particles.js";
 import { renderProjects } from "./portfolio.js";
 import { initProjectNote } from "./project-note.js";
-import { initPageTransitions } from "./page-transitions.js";
+import { initPageTransitions } from "./page-transitions.js?v=20260813-3";
 
 renderProjects();
 initPageTransitions();
