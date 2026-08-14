@@ -27,7 +27,7 @@ Reduced-motion mode removes continuous scanning and Canvas ambience, resolves dr
 
 Motion follows a staged editorial system: a short layered entrance establishes hierarchy, content reveals once with directional depth, and technical linework draws only when it becomes relevant. Fine-pointer responses use damped interpolation rather than snapping; ambient movement stays subordinate to reading.
 
-The visual system has two spatial layers. High-resolution transparent product renders give portal artwork a stable, art-directed composition. A pinned Three.js module renders procedural brass, wood, crystal, signal paths, and orbiting points in selected hero and workbench stages. The live layer crossfades over the same raster fallback only after WebGL initializes. It pauses off-screen and in hidden tabs, caps pixel density, uses lower density on phones, and renders without continuous motion when reduced motion is requested.
+The site treats every page as part of one dimensional canvas. Supplied moon, mountain, forest, path, material, and interface elements sit on separate depth planes. Pointer movement shifts nearby planes farther than distant ones; scroll introduces a second, quieter axis of movement. Same-origin page changes use a short pull-back and push-in transition centered on the selected link, suggesting a camera moving to another area of the same workshop. Nothing in the depth system is presented as a fabricated product or completed technical installation.
 
 ## Supplied brand artwork
 
@@ -35,7 +35,6 @@ The business-card artwork establishes a richer purple-night, engraved-gold visua
 
 - `assets/backgrounds/woodland-night-road-v2.jpg` is a generated wide adaptation of the supplied square landscape, with dark text-safe space on the left.
 - `assets/generated/` preserves the original transparent extractions. `assets/generated/hd/` contains the retina-ready set used by the site: six 1254 × 1254 high-detail service redraws plus padded 4× decorative layers.
-- `assets/generated/3d/` contains the transparent high-resolution concept renders used by the homepage spatial template. They are interface artwork, not examples of completed customer projects.
 - `assets/branding/legacy/` preserves the supplied transparent maker seal and print SVG as reference assets.
 - The homepage section divider is a single CSS-rendered brass and purple line, keeping the ornament crisp and visually quieter at every viewport size.
 

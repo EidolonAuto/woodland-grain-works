@@ -212,3 +212,86 @@ export function initScrollMotion() {
   update();
   window.addEventListener("scroll", schedule, { passive: true });
 }
+
+export function initDepthScenes() {
+  const scenes = [...document.querySelectorAll("[data-depth-scene]")];
+  if (!scenes.length || environment.reducedMotion) return;
+
+  scenes.forEach((scene) => {
+    const layers = [...scene.querySelectorAll("[data-depth]")];
+    if (!layers.length) return;
+
+    let frame = 0;
+    let visible = true;
+    const state = { x: 0, y: 0, targetX: 0, targetY: 0 };
+
+    const render = () => {
+      state.x = approach(state.x, state.targetX, 0.08);
+      state.y = approach(state.y, state.targetY, 0.08);
+      const bounds = scene.getBoundingClientRect();
+      const scrollPosition = clamp(
+        (window.innerHeight / 2 - (bounds.top + bounds.height / 2)) /
+          window.innerHeight,
+        -1,
+        1,
+      );
+
+      layers.forEach((layer) => {
+        const depth = Number(layer.dataset.depth) || 1;
+        layer.style.setProperty("--layer-x", `${state.x * depth * 13}px`);
+        layer.style.setProperty("--layer-y", `${state.y * depth * 9}px`);
+        layer.style.setProperty(
+          "--layer-scroll",
+          `${scrollPosition * depth * -18}px`,
+        );
+      });
+
+      frame = 0;
+      if (
+        visible &&
+        (Math.abs(state.x - state.targetX) > 0.002 ||
+          Math.abs(state.y - state.targetY) > 0.002)
+      ) {
+        frame = requestAnimationFrame(render);
+      }
+    };
+
+    const schedule = () => {
+      if (!frame && visible) frame = requestAnimationFrame(render);
+    };
+
+    if (environment.finePointer) {
+      scene.addEventListener("pointermove", (event) => {
+        const bounds = scene.getBoundingClientRect();
+        state.targetX = clamp(
+          ((event.clientX - bounds.left) / bounds.width - 0.5) * 2,
+          -1,
+          1,
+        );
+        state.targetY = clamp(
+          ((event.clientY - bounds.top) / bounds.height - 0.5) * 2,
+          -1,
+          1,
+        );
+        schedule();
+      });
+      scene.addEventListener("pointerleave", () => {
+        state.targetX = 0;
+        state.targetY = 0;
+        schedule();
+      });
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        if (visible) schedule();
+      },
+      { rootMargin: "160px" },
+    );
+    observer.observe(scene);
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule, { passive: true });
+    schedule();
+  });
+}

@@ -72,19 +72,19 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   assert.match(motion, /const approach/);
   assert.match(motion, /--parallax-near/);
   assert.match(animations, /\.js:not\(\.is-ready\)/);
-  assert.match(home, /\.spatial-render__image/);
-  assert.match(home, /\.portal__render/);
+  assert.match(home, /\.depth-scene/);
+  assert.match(home, /\.portal__index/);
   assert.match(
     await read("index.html"),
     /assets\/generated\/3d\/precision-relic\.png/,
   );
   assert.match(home, /perspective:\s*72rem/);
   assert.match(internal, /clip-path:\s*inset\(0 0 100% 0\)/);
-  const spatial = await read("js/spatial-3d.js");
-  assert.match(spatial, /three\.module\.min\.js/);
-  assert.match(spatial, /document\.hidden/);
-  assert.match(spatial, /prefers-reduced-motion/);
-  await access(new URL("../js/vendor/THREE-LICENSE.txt", import.meta.url));
+  const transitions = await read("js/page-transitions.js");
+  assert.match(motion, /initDepthScenes/);
+  assert.match(transitions, /sessionStorage/);
+  assert.match(transitions, /environment\.reducedMotion/);
+  assert.match(animations, /page-dolly-out/);
 });
 
 test("supplied brand art is integrated without the unrelated image", async () => {
@@ -94,7 +94,8 @@ test("supplied brand art is integrated without the unrelated image", async () =>
   assert.match(homepage, /woodland-night-road-v2\.jpg/);
   assert.match(homepage, /doors-heading__divider/);
   assert.doesNotMatch(homepage, /assets\/generated\/hd\/divider\.png/);
-  assert.match(services, /assets\/generated\/hd\/service-laser\.png/);
+  assert.match(services, /capability__readout/);
+  assert.doesNotMatch(services, /service-(?:laser|automotive|smart-home)\.png/);
   assert.doesNotMatch(`${homepage}${services}`, /fire|angel|wing/i);
   assert.match(
     designNotes,

@@ -1,6 +1,6 @@
 # Woodland Grain Works
 
-Woodland Grain Works V1 is a custom static web experience built with semantic HTML, modular CSS, modern vanilla JavaScript, Canvas, and a small self-hosted Three.js module for procedural 3D. It has no CMS, database, framework, runtime backend, or build step.
+Woodland Grain Works V1 is a custom static web experience built with semantic HTML, modular CSS, modern vanilla JavaScript, SVG, and Canvas. It has no CMS, database, framework, runtime backend, runtime dependency, or build step.
 
 The homepage acts as an animated workshop hub. Dedicated Services, Work, About, and Contact pages provide quieter, focused destinations.
 
@@ -43,12 +43,12 @@ Project artwork is explicitly labeled as concept studies. Replace or supplement 
 - `index.html` — animated workshop hub and progressive-enhancement baseline
 - `services.html`, `portfolio.html`, `about.html`, `contact.html` — dedicated destinations
 - `css/` — reset, tokens, components, shared animation, hub, and interior page composition
-- `js/` — navigation, centralized motion, local project-note tooling, ambient particles, procedural 3D, and data-driven portfolio
+- `js/` — navigation, layered parallax, cross-page camera transitions, local project-note tooling, ambient particles, and data-driven portfolio
 - `assets/` — original editable SVG branding and illustrations
 - `assets/generated/` — transparent UI accents and service medallions extracted from supplied brand palettes
 - `tools/extract-brand-assets.ps1` — reproducible palette-sheet extraction workflow
 - `docs/` — architecture, design rationale, deployment, and roadmap
 
-## Third-party runtime
+## Dimensional motion
 
-`js/vendor/three.module.min.js` is Three.js r184, pinned and self-hosted so the deployed site does not depend on a CDN. Its MIT license is included at `js/vendor/THREE-LICENSE.txt`. The 3D layer is decorative progressive enhancement: scenes pause outside the viewport or in hidden tabs, cap pixel density, render a still frame for reduced motion, and leave high-resolution raster fallbacks in the markup.
+The site creates depth from separate image and interface planes rather than modeled objects. `js/motion.js` applies damped pointer and scroll parallax only while scenes are visible. `js/page-transitions.js` turns ordinary same-origin links into a short pull-back and push-in camera move. Links remain normal links when JavaScript is unavailable, and reduced-motion mode skips both effects.

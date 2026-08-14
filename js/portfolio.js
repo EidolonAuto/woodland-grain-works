@@ -1,39 +1,39 @@
 export const projects = [
   {
-    slug: "signal-grain",
-    title: "Grain / Signal",
-    category: "Material + electronics",
+    slug: "identity-system",
+    title: "The Woodland Mark",
+    category: "Identity development",
     description:
-      "A material study built around one question: can a circuit feel grown rather than printed?",
+      "The existing maker seal, kept visible as the identity shifts toward a cleaner working system.",
     detail:
-      "Growth rings, routed traces, and a faceted center are being tested as one object language. This is direction-setting artwork, not customer work.",
-    signals: ["Layered linework", "Material contrast", "Signal geometry"],
-    image: "assets/generated/3d/precision-relic.png",
-    alt: "Concept render of a dark wood and brass circular object with a purple faceted center",
+      "This is real supplied Woodland Grain artwork, not a fabricated client project. It establishes the purple-night landscape, gold linework, and woodland detail the web system is being built from.",
+    signals: ["Existing mark", "Brand continuity", "Working asset"],
+    image: "assets/branding/legacy/maker-seal.png",
+    alt: "Existing circular Woodland Grain maker seal in purple, gold, and dark wood tones",
   },
   {
-    slug: "engraved-geometry",
-    title: "Engraving Rig",
-    category: "Laser + graphic design",
+    slug: "component-palette",
+    title: "Component Palette",
+    category: "Brand system study",
     description:
-      "A compact visual study for the point where digital linework becomes a mark in real material.",
+      "The supplied business-card artwork broken into reusable scenes, marks, borders, and service cues.",
     detail:
-      "The frame, beam, and sample block exaggerate the working parts on purpose. It is a way to test how process can be shown without turning the shop into a diagram.",
-    signals: ["Vector paths", "Engraving study", "Surface composition"],
-    image: "assets/generated/3d/laser-fabrication.png",
-    alt: "Concept render of a brass and purple engraving mechanism over a wood sample",
+      "This is an interface and production study using the actual supplied palette sheet. It shows how one dense piece of brand art can become a calmer, repeatable kit without pretending the pieces are physical products.",
+    signals: ["Supplied artwork", "Asset separation", "Reusable system"],
+    image: "assets/branding/source/5-Photo-5.jpg",
+    alt: "Woodland Grain brand component palette with landscape, service, frame, and ornament elements",
   },
   {
-    slug: "cabin-network",
-    title: "Quiet Network",
-    category: "Smart-home integration",
+    slug: "layered-landscape",
+    title: "Layered Landscape",
+    category: "Web art direction",
     description:
-      "A connected-space study where the technology stays useful and mostly out of sight.",
+      "The brand landscape rebuilt as a responsive depth system for movement, focus, and navigation.",
     detail:
-      "The small house is the point; the network is support. This explores how to show connected devices without making a home look like a control room.",
-    signals: ["Network planning", "Spatial integration", "Quiet technology"],
-    image: "assets/generated/3d/forest-model.png",
-    alt: "Concept render of a small dark house in a sculpted forest with subtle illuminated paths",
+      "The moon, mountain, forest, and path move as separate planes. This is a website composition study—not an example of fabricated work or a claim about a completed installation.",
+    signals: ["Parallax depth", "Responsive composition", "Supplied palette"],
+    image: "assets/backgrounds/woodland-night-road-v2.jpg",
+    alt: "Purple and gold woodland night landscape used as the website art-direction foundation",
   },
 ];
 

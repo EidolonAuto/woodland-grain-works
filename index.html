@@ -132,31 +132,38 @@
               ><span>Look around the workshop</span><i aria-hidden="true"></i
             ></a>
           </div>
-          <div class="hero-visual" data-hero-visual aria-hidden="true">
+          <div
+            class="hero-visual depth-scene"
+            data-hero-visual
+            data-depth-scene
+            aria-hidden="true"
+          >
             <div class="hero-visual__glow"></div>
-            <div
-              class="hero-visual__stage spatial-render spatial-render--hero"
-              data-spatial-scene="grain"
-            >
-              <div class="artifact-shadow"></div>
-              <div class="spatial-render__halo"></div>
-              <img
-                class="spatial-render__image spatial-render__fallback"
-                src="assets/generated/3d/precision-relic.png"
-                alt=""
-                width="1536"
-                height="1024"
-                fetchpriority="high"
-                decoding="async"
-              />
-              <canvas class="spatial-render__canvas"></canvas>
-              <div class="spatial-render__glass" aria-hidden="true"></div>
+            <img
+              class="hero-landscape__mountain depth-layer"
+              data-depth="0.9"
+              src="assets/generated/hd/mountain.png"
+              alt=""
+              width="1384"
+              height="824"
+              decoding="async"
+            />
+            <img
+              class="hero-landscape__forest depth-layer"
+              data-depth="1.45"
+              src="assets/generated/hd/forest.png"
+              alt=""
+              width="1464"
+              height="704"
+              decoding="async"
+            />
+            <div class="hero-contour depth-layer" data-depth="2.1">
+              <i></i><i></i><span>18 / 42</span>
             </div>
-            <div class="hero-visual__label hero-visual__label--top">
-              live material study
-            </div>
-            <div class="hero-visual__label hero-visual__label--bottom">
-              grain / current / form
+            <div class="hero-specimen depth-layer" data-depth="2.65">
+              <span>wood / light / wire / form</span>
+              <i></i>
+              <small>one workshop, layered thinking</small>
             </div>
           </div>
         </div>
@@ -186,17 +193,8 @@
               <h3>Services</h3>
             </div>
             <span class="portal__action">Browse capabilities ↗</span>
-            <div class="portal__render spatial-render" aria-hidden="true">
-              <img
-                class="spatial-render__image"
-                src="assets/generated/3d/laser-fabrication.png"
-                alt=""
-                width="1536"
-                height="1024"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="spatial-render__halo"></span>
+            <div class="portal__index" aria-hidden="true">
+              <span>engrave</span><span>shape</span><span>assemble</span>
             </div>
           </a>
           <a
@@ -210,17 +208,8 @@
               <h3>Selected work</h3>
             </div>
             <span class="portal__action">View concept studies ↗</span>
-            <div class="portal__render spatial-render" aria-hidden="true">
-              <img
-                class="spatial-render__image"
-                src="assets/generated/3d/precision-relic.png"
-                alt=""
-                width="1536"
-                height="1024"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="spatial-render__halo"></span>
+            <div class="portal__index" aria-hidden="true">
+              <span>process</span><span>detail</span><span>result</span>
             </div>
           </a>
           <a class="portal portal--about reveal" href="about.html" data-portal>
@@ -230,17 +219,8 @@
               <h3>About the workshop</h3>
             </div>
             <span class="portal__action">Meet the workshop ↗</span>
-            <div class="portal__render spatial-render" aria-hidden="true">
-              <img
-                class="spatial-render__image"
-                src="assets/generated/3d/forest-model.png"
-                alt=""
-                width="1536"
-                height="1024"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="spatial-render__halo"></span>
+            <div class="portal__index" aria-hidden="true">
+              <span>material</span><span>precision</span><span>curiosity</span>
             </div>
           </a>
           <a
@@ -254,17 +234,8 @@
               <h3>Bring an idea</h3>
             </div>
             <span class="portal__action">Build a project note ↗</span>
-            <div class="portal__render spatial-render" aria-hidden="true">
-              <img
-                class="spatial-render__image"
-                src="assets/generated/3d/signal-orb.png"
-                alt=""
-                width="1214"
-                height="1295"
-                loading="lazy"
-                decoding="async"
-              />
-              <span class="spatial-render__halo"></span>
+            <div class="portal__index" aria-hidden="true">
+              <span>idea</span><span>limits</span><span>next step</span>
             </div>
           </a>
         </div>
@@ -286,21 +257,30 @@
             >
           </div>
           <div
-            class="bench-object reveal"
-            data-spatial-scene="forest"
+            class="bench-object depth-scene reveal"
+            data-depth-scene
             aria-hidden="true"
           >
-            <img
-              class="spatial-render__fallback"
-              src="assets/generated/3d/forest-model.png"
-              alt=""
-              width="1536"
-              height="1024"
-              loading="lazy"
-              decoding="async"
-            />
-            <canvas class="spatial-render__canvas"></canvas>
-            <span class="bench-object__label">rotate / inspect / imagine</span>
+            <div
+              class="bench-plane bench-plane--wood depth-layer"
+              data-depth="0.6"
+            >
+              <span>WOOD / MATERIAL</span>
+            </div>
+            <div
+              class="bench-plane bench-plane--acrylic depth-layer"
+              data-depth="1.3"
+            >
+              <span>ACRYLIC / LIGHT</span>
+            </div>
+            <div
+              class="bench-plane bench-plane--drawing depth-layer"
+              data-depth="2"
+            >
+              <i></i><i></i><i></i><strong>LAYOUT / 01</strong>
+            </div>
+            <div class="bench-wire depth-layer" data-depth="2.6"></div>
+            <span class="bench-object__label">move across the layers</span>
           </div>
         </div>
       </section>

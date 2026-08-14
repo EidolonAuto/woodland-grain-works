@@ -146,6 +146,125 @@
     transform: translateX(280px);
   }
 }
+
+html {
+  --transition-x: 50%;
+  --transition-y: 50%;
+}
+
+html::after {
+  position: fixed;
+  z-index: calc(var(--z-header) + 10);
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--transition-x) var(--transition-y),
+    transparent 0 7%,
+    rgba(12, 10, 13, 0.24) 32%,
+    rgba(12, 10, 13, 0.96) 100%
+  );
+  content: "";
+  opacity: 0;
+  transform: scale(1.18);
+}
+
+.is-departing body > main,
+.is-departing .site-header,
+.is-departing .site-footer {
+  pointer-events: none;
+  transform-origin: var(--transition-x) var(--transition-y);
+  animation: page-dolly-out 560ms var(--ease-in-out) both;
+}
+
+.is-departing .hero__backdrop,
+.is-departing .interior-hero {
+  animation: backdrop-dolly-in 560ms var(--ease-in-out) both;
+}
+
+.is-departing::after {
+  animation: transition-aperture-in 560ms var(--ease-in-out) both;
+}
+
+[data-transition-active="true"] {
+  position: relative;
+  z-index: calc(var(--z-header) + 11);
+}
+
+.is-arriving body > main,
+.is-arriving .site-header,
+.is-arriving .site-footer {
+  transform-origin: var(--transition-x) var(--transition-y);
+  animation: page-dolly-in 720ms var(--ease-out) both;
+}
+
+.is-arriving::after {
+  animation: transition-aperture-out 720ms var(--ease-out) both;
+}
+
+@keyframes page-dolly-out {
+  from {
+    opacity: 1;
+    filter: blur(0);
+    transform: perspective(80rem) translateZ(0) scale(1);
+  }
+
+  to {
+    opacity: 0.18;
+    filter: blur(3px);
+    transform: perspective(80rem) translateZ(-14rem) scale(0.78);
+  }
+}
+
+@keyframes backdrop-dolly-in {
+  from {
+    background-size: 100% 100%;
+    transform: scale(1);
+  }
+
+  to {
+    background-size: 112% 112%;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes page-dolly-in {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: perspective(80rem) translateZ(11rem) scale(1.13);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: perspective(80rem) translateZ(0) scale(1);
+  }
+}
+
+@keyframes transition-aperture-in {
+  from {
+    opacity: 0;
+    transform: scale(1.18);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes transition-aperture-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.22);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -171,6 +290,10 @@
     stroke-dashoffset: 0;
   }
   .hero__particles {
+    display: none;
+  }
+
+  html::after {
     display: none;
   }
 }

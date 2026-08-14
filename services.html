@@ -94,19 +94,20 @@
             </p>
           </div>
           <div
-            class="interior-hero__art spatial-stage"
-            data-spatial-scene="grain"
+            class="interior-depth depth-scene"
+            data-depth-scene
             aria-hidden="true"
           >
-            <img
-              class="spatial-render__fallback"
-              src="assets/generated/3d/laser-fabrication.png"
-              alt=""
-              width="1536"
-              height="1024"
-              decoding="async"
-            />
-            <canvas class="spatial-render__canvas"></canvas>
+            <div class="interior-plane interior-plane--wood" data-depth="0.7">
+              <span>material</span>
+            </div>
+            <div class="interior-plane interior-plane--grid" data-depth="1.35">
+              <i></i><i></i><i></i>
+            </div>
+            <div class="interior-plane interior-plane--label" data-depth="2.1">
+              <strong>CAPABILITY / 01—05</strong
+              ><span>choose the process after the problem</span>
+            </div>
           </div>
         </div>
       </section>
@@ -142,13 +143,10 @@
               </ul>
             </div>
             <div class="capability__visual reveal" aria-hidden="true">
-              <img
-                class="capability__medallion"
-                src="assets/generated/hd/service-laser.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="capability__readout">
+                <strong>MARK / SURFACE</strong
+                ><span>line · depth · repeat</span>
+              </div>
               <svg viewBox="0 0 600 400">
                 <path
                   d="M70 304c45-145 125-214 230-214s185 69 230 214M100 304c41-110 106-164 200-164s159 54 200 164M143 304c33-72 85-108 157-108s124 36 157 108"
@@ -174,19 +172,9 @@
               </ul>
             </div>
             <div class="capability__visual reveal" aria-hidden="true">
-              <div class="capability__medallion-pair">
-                <img
-                  src="assets/generated/hd/service-woodworking.png"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
-                <img
-                  src="assets/generated/hd/service-fabrication.png"
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                />
+              <div class="capability__readout">
+                <strong>FORM / ASSEMBLY</strong
+                ><span>fit · finish · structure</span>
               </div>
               <svg viewBox="0 0 600 400">
                 <path
@@ -216,13 +204,10 @@
               </ul>
             </div>
             <div class="capability__visual reveal" aria-hidden="true">
-              <img
-                class="capability__medallion"
-                src="assets/generated/hd/service-automotive.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="capability__readout">
+                <strong>POWER / SIGNAL</strong
+                ><span>route · protect · integrate</span>
+              </div>
               <svg viewBox="0 0 600 400">
                 <circle cx="165" cy="200" r="104" />
                 <circle cx="165" cy="200" r="61" />
@@ -251,13 +236,10 @@
               </ul>
             </div>
             <div class="capability__visual reveal" aria-hidden="true">
-              <img
-                class="capability__medallion"
-                src="assets/generated/hd/service-smart-home.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="capability__readout">
+                <strong>ROOM / ROUTINE</strong
+                ><span>connect · simplify · support</span>
+              </div>
               <svg viewBox="0 0 600 400">
                 <path
                   d="M92 315V155l208-94 208 94v160M92 315h416M206 315V205h188v110"
@@ -289,13 +271,10 @@
               </ul>
             </div>
             <div class="capability__visual reveal" aria-hidden="true">
-              <img
-                class="capability__medallion"
-                src="assets/generated/hd/service-design.png"
-                alt=""
-                loading="lazy"
-                decoding="async"
-              />
+              <div class="capability__readout">
+                <strong>IMAGE / OUTPUT</strong
+                ><span>draw · prepare · produce</span>
+              </div>
               <svg viewBox="0 0 600 400">
                 <circle cx="300" cy="200" r="126" />
                 <path d="m300 74 109 189H191L300 74Zm0 58 59 102H241l59-102Z" />

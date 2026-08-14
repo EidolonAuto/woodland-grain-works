@@ -56,6 +56,157 @@
   opacity: 0.58;
 }
 
+.interior-depth {
+  position: relative;
+  width: min(100%, 34rem);
+  min-height: clamp(20rem, 46vw, 32rem);
+  justify-self: center;
+  perspective: 70rem;
+  transform-style: preserve-3d;
+}
+
+.interior-depth [data-depth] {
+  --layer-x: 0px;
+  --layer-y: 0px;
+  --layer-scroll: 0px;
+
+  transform: translate3d(
+    var(--layer-x),
+    calc(var(--layer-y) + var(--layer-scroll)),
+    0
+  );
+  transition: transform 90ms linear;
+  will-change: transform;
+}
+
+.interior-plane {
+  position: absolute;
+  display: grid;
+  align-content: end;
+  gap: 0.5rem;
+  padding: 1rem;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.35);
+}
+
+.interior-plane span,
+.interior-plane strong,
+.note-sheet span,
+.note-sheet strong {
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.interior-plane--wood {
+  inset: 17% 18% 18% 10%;
+  border: 1px solid rgba(227, 191, 121, 0.28);
+  background:
+    repeating-radial-gradient(
+      ellipse at 9% 57%,
+      transparent 0 1.7rem,
+      rgba(227, 191, 121, 0.09) 1.78rem 1.85rem
+    ),
+    #4a3123;
+  color: var(--color-gold-300);
+  rotate: -4deg;
+}
+
+.interior-plane--grid {
+  inset: 11% 9% 29% 31%;
+  align-content: center;
+  gap: 2.2rem;
+  border: 1px solid rgba(193, 128, 221, 0.42);
+  background:
+    linear-gradient(rgba(227, 191, 121, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(227, 191, 121, 0.08) 1px, transparent 1px),
+    rgba(79, 14, 112, 0.34);
+  background-size: 2.25rem 2.25rem;
+  rotate: 3deg;
+  backdrop-filter: blur(0.18rem);
+}
+
+.interior-plane--grid i {
+  height: 1px;
+  background: linear-gradient(90deg, var(--color-gold-300), transparent);
+}
+
+.interior-plane--label {
+  right: 2%;
+  bottom: 9%;
+  width: min(18rem, 65%);
+  border: 1px solid rgba(227, 191, 121, 0.26);
+  background: rgba(12, 10, 13, 0.78);
+  color: var(--color-gold-300);
+  backdrop-filter: blur(0.7rem);
+}
+
+.interior-plane--label span {
+  color: rgba(251, 248, 241, 0.6);
+}
+
+.interior-depth--landscape img {
+  position: absolute;
+  object-fit: contain;
+}
+
+.interior-landscape__mountain {
+  inset: 8% 0 auto;
+  width: 100%;
+  opacity: 0.92;
+}
+
+.interior-landscape__forest {
+  right: -4%;
+  bottom: 5%;
+  width: 108%;
+  opacity: 0.95;
+  filter: drop-shadow(0 1.6rem 2rem rgba(0, 0, 0, 0.55));
+}
+
+.note-sheet {
+  position: absolute;
+  display: grid;
+  align-content: start;
+  gap: 1.2rem;
+  padding: 1.2rem;
+  border: 1px solid rgba(227, 191, 121, 0.2);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.35);
+}
+
+.note-sheet--back {
+  inset: 13% 27% 24% 6%;
+  background: #493124;
+  color: var(--color-gold-300);
+  rotate: -7deg;
+}
+
+.note-sheet--middle {
+  inset: 9% 10% 29% 29%;
+  background: rgba(79, 14, 112, 0.72);
+  color: var(--color-paper-50);
+  rotate: 5deg;
+}
+
+.note-sheet--front {
+  inset: 25% 20% 8%;
+  background: #181519;
+  color: var(--color-gold-300);
+  rotate: -1deg;
+}
+
+.note-sheet--front i {
+  height: 1px;
+  background: linear-gradient(90deg, rgba(227, 191, 121, 0.8), transparent);
+}
+
+.seal-backdrop {
+  position: absolute;
+  inset: 11%;
+  border: 1px solid rgba(227, 191, 121, 0.18);
+  background: radial-gradient(circle, rgba(79, 14, 112, 0.35), transparent 68%);
+  rotate: 5deg;
+}
+
 .spatial-stage {
   min-height: clamp(18rem, 46vw, 32rem);
   opacity: 1;
@@ -208,6 +359,32 @@
   left: 50%;
   filter: drop-shadow(0 0 30px rgba(79, 14, 112, 0.8));
   transform: translate(-50%, -50%);
+}
+
+.capability__readout {
+  position: absolute;
+  z-index: 2;
+  right: 8%;
+  bottom: 11%;
+  display: grid;
+  min-width: min(18rem, 72%);
+  gap: 0.55rem;
+  padding: 1rem 1.15rem;
+  border: 1px solid rgba(227, 191, 121, 0.28);
+  background: rgba(12, 10, 13, 0.78);
+  box-shadow: 0 1.2rem 2.8rem rgba(0, 0, 0, 0.36);
+  color: var(--color-gold-300);
+  backdrop-filter: blur(0.7rem);
+}
+
+.capability__readout strong,
+.capability__readout span {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+}
+
+.capability__readout span {
+  color: rgba(251, 248, 241, 0.58);
 }
 
 .capability__medallion {
@@ -741,6 +918,11 @@
 
   .spatial-render__canvas,
   .spatial-stage .spatial-render__fallback {
+    transition: none;
+  }
+
+  .interior-depth [data-depth] {
+    transform: none;
     transition: none;
   }
 }

@@ -5,7 +5,7 @@
 - Animated homepage hub with four accessible destination portals.
 - Dedicated Services, Work, About, and Contact pages.
 - Production GitHub Pages canonical, Open Graph, sitemap, and robots metadata.
-- Self-hosted procedural 3D, high-resolution fallback renders, responsive navigation, design tokens, modular motion, and reduced-motion fallbacks.
+- Layered parallax scenes, cross-page camera transitions, responsive navigation, design tokens, modular motion, and reduced-motion fallbacks.
 - Clearly labeled concept studies and a local-only project-note builder that never implies submission.
 
 ## Make it real — deferred for now

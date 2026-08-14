@@ -1,6 +1,7 @@
 import { initNavigation } from "./navigation.js";
 import {
   initHeroResponse,
+  initDepthScenes,
   initMagneticElements,
   initPageIntro,
   initPortalResponse,
@@ -9,19 +10,20 @@ import {
 } from "./motion.js";
 import { initParticles } from "./particles.js";
 import { renderProjects } from "./portfolio.js";
-import { initSpatialScenes } from "./spatial-3d.js";
 import { initProjectNote } from "./project-note.js";
+import { initPageTransitions } from "./page-transitions.js";
 
 renderProjects();
+initPageTransitions();
 initPageIntro();
 initNavigation();
 initReveals();
 initHeroResponse();
+initDepthScenes();
 initMagneticElements();
 initPortalResponse();
 initScrollMotion();
 initParticles();
-initSpatialScenes();
 initProjectNote();
 
 const year = document.querySelector("[data-current-year]");

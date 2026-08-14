@@ -2,7 +2,7 @@
 
 ## Current state
 
-V1 is a provider-neutral, multi-page static site. The homepage is an animated navigation hub; Services, Work, About, and Contact are dedicated HTML documents with a calmer editorial rhythm. Semantic content and links work without JavaScript. ES modules add optional reveal, pointer, Canvas, local utility, and procedural 3D behavior.
+V1 is a provider-neutral, multi-page static site. The homepage is an animated navigation hub; Services, Work, About, and Contact are dedicated HTML documents that feel like connected areas of one visual canvas. Semantic content and links work without JavaScript. ES modules add optional reveal, parallax, cross-page camera movement, Canvas ambience, and local utility behavior.
 
 ```text
 *.html
@@ -15,17 +15,17 @@ V1 is a provider-neutral, multi-page static site. The homepage is an animated na
        ├─ navigation.js
        ├─ motion.js → shared reveal and pointer response
        ├─ particles.js → bounded homepage Canvas ambience
-       ├─ spatial-3d.js → viewport-aware procedural WebGL scenes
+       ├─ page-transitions.js → progressive cross-page dolly transitions
        ├─ project-note.js → local-only clipboard utility
        └─ portfolio.js → project data and rendering
 ```
 
 ## Decisions
 
-- **No framework or build output:** native APIs keep deployment portable. Three.js r184 is pinned and self-hosted as a focused WebGL rendering dependency, not an application framework.
+- **No framework, runtime dependency, or build output:** native APIs keep deployment portable and the source directly inspectable.
 - **Hub-and-destinations model:** the homepage creates atmosphere and directs visitors; destination pages carry detail without repeating a corporate landing-page funnel.
 - **Portfolio data module:** project content is a plain object collection ready to become JSON or API data later.
-- **Bounded graphics:** particles and 3D scenes are ignored by assistive technology, paused when hidden or off-screen, pixel-density capped, and static for reduced motion.
+- **Bounded graphics:** particles and depth scenes are ignored by assistive technology, paused or simplified when hidden or off-screen, and static for reduced motion.
 - **Honest visual studies:** concept renders are explicitly distinguished from completed customer projects.
 
 ## Content boundaries

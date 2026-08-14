@@ -98,19 +98,30 @@
             </p>
           </div>
           <div
-            class="interior-hero__art spatial-stage"
-            data-spatial-scene="forest"
+            class="interior-depth interior-depth--landscape depth-scene"
+            data-depth-scene
             aria-hidden="true"
           >
             <img
-              class="spatial-render__fallback"
-              src="assets/generated/3d/forest-model.png"
+              class="interior-landscape__mountain"
+              data-depth="0.7"
+              src="assets/generated/hd/mountain.png"
               alt=""
-              width="1536"
-              height="1024"
-              decoding="async"
+              width="1384"
+              height="824"
             />
-            <canvas class="spatial-render__canvas"></canvas>
+            <img
+              class="interior-landscape__forest"
+              data-depth="1.3"
+              src="assets/generated/hd/forest.png"
+              alt=""
+              width="1464"
+              height="704"
+            />
+            <div class="interior-plane interior-plane--label" data-depth="2">
+              <strong>VISUAL NOTEBOOK</strong
+              ><span>concepts shown honestly</span>
+            </div>
           </div>
         </div>
       </section>
