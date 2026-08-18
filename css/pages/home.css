@@ -1140,9 +1140,7 @@
 .scene-occluder--doors {
   position: relative;
   z-index: 1;
-  right: auto;
-  bottom: auto;
-  left: auto;
+  grid-column: 1 / -1;
   width: min(calc(100% - (var(--edge-gutter) * 2)), var(--content-wide));
   height: clamp(3rem, 5vw, 5rem);
   margin-inline: auto;
@@ -1216,7 +1214,7 @@
   color: var(--color-ink-950);
   box-shadow:
     0 1.6rem 3.8rem rgba(0, 0, 0, 0.34),
-    inset 0.9rem 0 0 #e8ddca;
+    inset 0.2rem 0 0 rgba(199, 149, 67, 0.62);
 }
 
 .portal--work .portal__number,
