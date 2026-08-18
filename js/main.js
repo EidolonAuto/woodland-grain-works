@@ -6,8 +6,8 @@ import {
   initReveals,
 } from "./motion.js?v=20260813-spatial3";
 import { initParticles } from "./particles.js";
-import { renderProjects } from "./portfolio.js?v=20260813-spatial3";
-import { initProjectNote } from "./project-note.js";
+import { renderProjects } from "./portfolio.js?v=20260818-voice1";
+import { initProjectNote } from "./project-note.js?v=20260818-voice1";
 import { initPageTransitions } from "./page-transitions.js?v=20260813-spatial3";
 import {
   initEngravingReveals,

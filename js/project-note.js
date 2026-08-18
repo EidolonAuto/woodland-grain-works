@@ -8,13 +8,13 @@ function buildNote(form) {
   if (!category || !details) return null;
 
   const lines = [
-    "WOODLAND GRAIN PROJECT NOTE",
+    "WOODLAND GRAIN WORKS — PROJECT NOTE",
     "",
     `Name: ${fieldValue(form, "name") || "Not added"}`,
     `Reply to: ${fieldValue(form, "email") || "Not added"}`,
     `Project direction: ${category}`,
     "",
-    "What I am trying to make:",
+    "What I want to make or solve:",
     details,
     "",
     `Size / quantity: ${fieldValue(form, "scale") || "Not sure yet"}`,

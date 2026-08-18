@@ -47,7 +47,7 @@ Project artwork is explicitly labeled as concept studies. Replace or supplement 
 - `assets/` — original editable SVG branding and illustrations
 - `assets/generated/` — transparent UI accents and service medallions extracted from supplied brand palettes
 - `tools/extract-brand-assets.ps1` — reproducible palette-sheet extraction workflow
-- `docs/` — architecture, design rationale, deployment, and roadmap
+- `docs/` — architecture, design rationale, voice, deployment, and roadmap
 
 ## Dimensional motion
 

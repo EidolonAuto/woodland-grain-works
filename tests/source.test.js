@@ -125,7 +125,7 @@ test("brand and focus tokens remain centralized", async () => {
 test("portfolio studies are honest, linked, and keyboard accessible", async () => {
   const html = await read("portfolio.html");
   const script = await read("js/portfolio.js");
-  assert.match(html, /It is not presented as commissioned customer work/);
+  assert.match(html, /They are not customer projects/);
   assert.match(script, /<a class="project-card__link"/);
   assert.match(script, /href="portfolio\.html#\$\{project\.slug\}"/);
   assert.match(script, /"engraved-plate"/);

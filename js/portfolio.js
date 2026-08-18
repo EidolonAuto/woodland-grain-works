@@ -4,22 +4,22 @@ export const projects = [
     title: "The Woodland Mark",
     category: "Identity development",
     description:
-      "The existing maker seal, kept visible as the identity shifts toward a cleaner working system.",
+      "The original maker seal stays in view while the system around it gets simpler and easier to use.",
     detail:
-      "This is real supplied Woodland Grain artwork, not a fabricated client project. It establishes the purple-night landscape, gold linework, and woodland detail the web system is being built from.",
-    signals: ["Existing mark", "Brand continuity", "Working asset"],
+      "This is supplied Woodland Grain artwork, not a customer project. It is the source for the purple night, gold linework, and woodland details used throughout the site.",
+    signals: ["Original mark", "Brand reference", "Source asset"],
     image: "assets/branding/legacy/maker-seal.png",
     alt: "Existing circular Woodland Grain maker seal in purple, gold, and dark wood tones",
   },
   {
     slug: "mountain-line-study",
     title: "Mountain Line Study",
-    category: "Visual language study",
+    category: "Artwork study",
     description:
-      "One isolated landscape element, separated from the original composition and given room to work on its own.",
+      "One piece of the larger landscape, separated so it can work on its own.",
     detail:
-      "This transparent mountain layer was extracted from supplied Woodland Grain artwork for restrained use in interfaces and motion. The original component sheet is a working source file, not website content.",
-    signals: ["Transparent asset", "Brand continuity", "Layer-ready"],
+      "I pulled this transparent mountain from the supplied artwork for use in motion and interface layers. The original component sheet stays in the project as a source file, not public page content.",
+    signals: ["Transparent asset", "Original artwork", "Motion layer"],
     image: "assets/generated/hd/mountain.png",
     alt: "Isolated purple and gold mountain illustration on a transparent background",
   },
@@ -28,10 +28,10 @@ export const projects = [
     title: "Layered Landscape",
     category: "Web art direction",
     description:
-      "The brand landscape rebuilt as a responsive depth system for movement, focus, and navigation.",
+      "The supplied landscape rebuilt in layers so it can move with the site.",
     detail:
-      "The moon, mountain, forest, and path move as separate planes. This is a website composition study—not an example of fabricated work or a claim about a completed installation.",
-    signals: ["Parallax depth", "Responsive composition", "Supplied palette"],
+      "The moon, mountain, forest, and path move at different depths. This is a study for the website, not a fabricated product or a completed customer installation.",
+    signals: ["Layered depth", "Responsive layout", "Supplied artwork"],
     image: "assets/backgrounds/woodland-night-road-source.jpg",
     alt: "Purple and gold woodland night landscape used as the website art-direction foundation",
   },
@@ -48,7 +48,7 @@ function projectCard(project, index) {
         <span class="project-card__type">${project.category}</span>
         <h3>${project.title}</h3>
         <p>${project.description}</p>
-        <span class="project-card__action">Open study <span aria-hidden="true">↗</span></span>
+        <span class="project-card__action">View study <span aria-hidden="true">↗</span></span>
       </div>
     </a>`;
   return article;
