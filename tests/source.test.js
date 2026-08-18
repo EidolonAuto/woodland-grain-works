@@ -81,6 +81,7 @@ test("advanced motion has reduced-motion fallbacks", async () => {
   assert.match(animations, /\.js:not\(\.is-ready\)/);
   assert.match(home, /\.depth-scene/);
   assert.match(home, /\.portal__index/);
+  assert.match(home, /\.portal__index[\s\S]*right:\s*var\(--space-4\)/);
   const homepage = await read("index.html");
   assert.match(homepage, /assets\/generated\/hd\/mountain\.png/);
   assert.match(homepage, /assets\/generated\/hd\/forest\.png/);
