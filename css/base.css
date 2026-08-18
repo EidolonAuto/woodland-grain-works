@@ -52,7 +52,7 @@ p {
   max-width: 65ch;
 }
 .shell {
-  width: min(calc(100% - (var(--edge-gutter) * 2)), var(--content));
+  width: min(calc(100% - (var(--edge-gutter) * 2)), var(--content-wide));
   margin-inline: auto;
 }
 .section {

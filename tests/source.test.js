@@ -117,9 +117,11 @@ test("supplied brand art is integrated without the unrelated image", async () =>
 
 test("brand and focus tokens remain centralized", async () => {
   const tokens = await read("css/tokens.css");
+  const base = await read("css/base.css");
   assert.match(tokens, /--color-purple-700:\s*#4f0e70/);
   assert.match(tokens, /--color-gold-500/);
   assert.match(tokens, /--focus-ring/);
+  assert.match(base, /\.shell[\s\S]*var\(--content-wide\)/);
 });
 
 test("portfolio studies are honest, linked, and keyboard accessible", async () => {
